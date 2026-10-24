@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本ライブカメラマップ（試作）</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  #app { display: flex; flex-direction: column; height: 100%; }
+  header { padding: 8px 12px; background: #0b3d66; color: #fff; }
+  header h1 { font-size: 16px; margin: 0 0 6px; }
+  header .sub { font-size: 11px; opacity: .85; }
+  #controls { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+  .chip { border: 1px solid rgba(255,255,255,.5); background: transparent; color: #fff; border-radius: 999px; padding: 4px 10px; font-size: 12px; cursor: pointer; }
+  .chip.active { background: #fff; color: #0b3d66; font-weight: 700; }
+  #search { flex: 1; min-width: 140px; padding: 6px 10px; border-radius: 999px; border: none; font-size: 13px; }
+  #count { font-size: 12px; }
+  #map { flex: 1; }
+  .cam-popup { width: 300px; max-width: 78vw; }
+  .cam-popup h3 { margin: 0 0 2px; font-size: 14px; }
+  .cam-popup .meta { font-size: 11px; color: #555; margin-bottom: 6px; }
+  .cam-popup img.still { width: 100%; border-radius: 6px; background: #111; aspect-ratio: 16/9; object-fit: cover; }
+  .cam-popup .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 6px; overflow: hidden; }
+  .cam-popup iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .cam-popup .src { font-size: 11px; margin-top: 6px; }
+  .badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 4px; background: #e8f1f8; color: #0b3d66; margin-right: 4px; }
+  footer { font-size: 10px; color: #666; padding: 4px 10px; background: #f4f6f8; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>🗾 日本ライブカメラマップ <span class="sub">試作版</span></h1>
+    <div class="sub">日本中の定点カメラを地図から見る。マーカーをタップすると最新の映像／画像が出ます。</div>
+    <div id="controls">
+      <span id="chips"></span>
+      <input id="search" type="search" placeholder="地名・川名・カメラ名で検索">
+      <span id="count"></span>
+    </div>
+  </header>
+  <div id="map"></div>
+  <footer>地図: 国土地理院タイル（出典: 国土地理院）／ カメラ映像は各配信元の公開ページ・公開画像へのリンク・埋め込みです。各カメラの著作権は配信元に帰属します。</footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="cameras.js"></script>
+<script>
+(function () {
+  var gsiStd = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+    attribution: '出典: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>', maxZoom: 18
+  });
+  var gsiPhoto = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
+    attribution: '出典: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>', maxZoom: 18
+  });
+  var map = L.map('map', { layers: [gsiStd] }).setView([37.6, 138.0], 5);
+  L.control.layers({ '地理院地図': gsiStd, '航空写真': gsiPhoto }).addTo(map);
+
+  var cluster = L.markerClusterGroup({ maxClusterRadius: 45 });
+  map.addLayer(cluster);
+
+  var categories = ['すべて'];
+  (window.CAMERAS || []).forEach(function (c) { if (categories.indexOf(c.category) < 0) categories.push(c.category); });
+
+  var activeCat = 'すべて';
+  var query = '';
+  var markers = [];
+
+  function mediaHtml(c) {
+    if (c.type === 'youtube') {
+      return '<div class="video-wrap"><iframe data-yt="' + c.videoId + '" allowfullscreen loading="lazy" title="' + c.name + '"></iframe></div>';
+    }
+    if (c.type === 'image') {
+      return '<img class="still" data-img="' + c.image + '" alt="' + c.name + '">'
+        + '<div class="meta">静止画（自動更新） <span data-clock></span></div>';
+    }
+    return '<div class="meta">外部ページで映像を見るタイプ</div>';
+  }
+
+  function popupHtml(c) {
+    return '<div class="cam-popup"><h3>' + c.name + '</h3>'
+      + '<div class="meta"><span class="badge">' + c.category + '</span>' + c.pref + ' ' + (c.city || '') + '</div>'
+      + mediaHtml(c)
+      + '<div class="src">配信元: ' + (c.provider || '公開ライブカメラ') + '<br><a href="' + c.source + '" target="_blank" rel="noopener">公式／配信ページを開く</a></div></div>';
+  }
+
+  var refreshTimer = null;
+  function armPopupMedia(popupEl, c) {
+    if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
+    if (!popupEl) return;
+    if (c.type === 'youtube') {
+      var f = popupEl.querySelector('iframe[data-yt]');
+      if (f) f.src = 'https://www.youtube-nocookie.com/embed/' + c.videoId + '?autoplay=1&mute=1&playsinline=1';
+    }
+    if (c.type === 'image') {
+      var img = popupEl.querySelector('img[data-img]');
+      var clock = popupEl.querySelector('[data-clock]');
+      var load = function () {
+        if (img) img.src = c.image + (c.image.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+        if (clock) clock.textContent = '（' + new Date().toLocaleTimeString('ja-JP') + ' 更新）';
+      };
+      load();
+      refreshTimer = setInterval(load, 60000);
+    }
+  }
+
+  function render() {
+    cluster.clearLayers();
+    markers = [];
+    var n = 0;
+    (window.CAMERAS || []).forEach(function (c) {
+      if (activeCat !== 'すべて' && c.category !== activeCat) return;
+      if (query) {
+        var hay = (c.name + ' ' + c.pref + ' ' + (c.city || '') + ' ' + c.category);
+        if (hay.indexOf(query) < 0) return;
+      }
+      var m = L.marker([c.lat, c.lon]).bindPopup(popupHtml(c), { maxWidth: 320 });
+      m._cam = c;
+      m.on('popupopen', function (e) { armPopupMedia(e.popup.getElement(), c); });
+      m.on('popupclose', function () { if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; } });
+      markers.push(m);
+      cluster.addLayer(m);
+      n++;
+    });
+    document.getElementById('count').textContent = n + ' 件';
+  }
+
+  var chipsEl = document.getElementById('chips');
+  categories.forEach(function (cat) {
+    var b = document.createElement('button');
+    b.className = 'chip' + (cat === 'すべて' ? ' active' : '');
+    b.textContent = cat;
+    b.addEventListener('click', function () {
+      activeCat = cat;
+      chipsEl.querySelectorAll('.chip').forEach(function (x) { x.classList.toggle('active', x.textContent === cat); });
+      render();
+    });
+    chipsEl.appendChild(b);
+  });
+
+  var searchEl = document.getElementById('search');
+  var debounce = null;
+  searchEl.addEventListener('input', function () {
+    clearTimeout(debounce);
+    debounce = setTimeout(function () { query = searchEl.value.trim(); render(); }, 200);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
