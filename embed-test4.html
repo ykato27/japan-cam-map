@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<title>world sweep v2</title></head>
+<body>
+<h1>world sweep v2</h1>
+<div id="status">RUNNING</div>
+<pre id="out"></pre>
+<div id="players"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var VIDEOS = [
+    ["VXo0VqVcbK4", "タイムズスクエア 1560ブロードウェイ（AE Signage）"],
+    ["pv-2pVViNwc", "タイムズスクエア・ダフィースクエア（AE Signage）"],
+    ["QI-PPEW2Bgc", "エッフェル塔を望むパリ市街（Paris75Webcam）"],
+    ["5uZa3-RMFos", "シドニーハーバー（WebcamSydney）"],
+    ["f0c4udZWCnE", "デュバルストリート（フロリダキーズ観光局）"],
+    ["HDlmUp4JBLg", "サザンモストポイント（キーウェスト）"],
+    ["wyEi0OPai5g", "コパカバーナビーチ Posto 6（Homes in Rio）"],
+    ["WEl_I5vmuSs", "コパカバーナビーチ Posto 3（Homes in Rio）"],
+    ["4Zu64CmAjMo", "シーポイントとライオンズヘッド（ケープタウン）"],
+    ["8xvFxAPpEtc", "ケープタウン市街とシグナルヒル（Vanilla）"],
+    ["BsZEOvS3qTM", "耿達バレーのパンダ"],
+    ["oORXfTviuCs", "ムパラの水場（カバのプール）"],
+    ["13VgaXNhy_M", "リエツプルイトのブッシュカム"],
+    ["1HxOxiMZUNI", "グレート・プレインズの湿原ライブ"],
+    ["ME0dPuBtzug", "カラハリ砂漠の水場"]
+  ];
+  var BATCH = 4, WAIT = 30000;
+  var results = {}, order = [], doneCount = 0, idx = 0, okCount = 0;
+  var out = document.getElementById('out'), statusEl = document.getElementById('status');
+  function render() {
+    out.textContent = order.map(function (id) { return results[id]; }).join('\n');
+    statusEl.textContent = (idx >= VIDEOS.length && doneCount >= VIDEOS.length) ? ('DONE: ' + okCount + '/' + VIDEOS.length + ' playing') : ('RUNNING ' + doneCount + '/' + VIDEOS.length);
+    if (idx >= VIDEOS.length && doneCount >= VIDEOS.length) document.title = 'DONE world sweep';
+  }
+  function batch() {
+    if (idx >= VIDEOS.length) { render(); return; }
+    var slice = VIDEOS.slice(idx, idx + BATCH); idx += BATCH;
+    var pending = slice.length, finished = false;
+    function step() { if (--pending === 0 && !finished) { finished = true; setTimeout(batch, 300); } }
+    slice.forEach(function (v) {
+      var id = v[0], name = v[1]; order.push(id);
+      var host = document.createElement('div'); host.id = 'p_' + id;
+      document.getElementById('players').appendChild(host);
+      var settled = false;
+      function settle(text, isOk) { if (settled) return; settled = true; results[id] = text; if (isOk) okCount++; doneCount++; render(); step(); }
+      try {
+        new YT.Player(host, { videoId: id, width: 320, height: 180, playerVars: { autoplay: 1, mute: 1, playsinline: 1 }, events: {
+          onReady: function (e) { try { e.target.mute(); e.target.playVideo(); } catch (err) {}
+            setTimeout(function () { var st = -9, t = -1; try { st = e.target.getPlayerState(); t = e.target.getCurrentTime(); } catch (err) {}
+              if ((st === 1 || st === 3) && t > 0.5) settle('PLAYING: ' + name, true);
+              else settle('READY(state=' + st + ',t=' + t.toFixed(1) + '): ' + name, false);
+            }, WAIT);
+          },
+          onError: function (e) { settle('ERROR ' + e.data + ': ' + name, false); }
+        }});
+      } catch (err) { settle('EXC: ' + name, false); }
+      setTimeout(function () { settle('TIMEOUT: ' + name, false); }, WAIT + 45000);
+    });
+  }
+  function onYouTubeIframeAPIReady() { batch(); }
+</script>
+</body></html>
