@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日本ライブカメラマップ</title>
+<title>世界ライブカメラマップ</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
@@ -43,8 +43,8 @@
 <body>
 <div id="app">
   <header>
-    <h1>🗾 日本ライブカメラマップ</h1>
-    <div class="sub">日本中の定点ライブカメラを地図から見る。マーカーをタップすると大きな画面でリアルタイム映像が出ます。</div>
+    <h1>🌏 世界ライブカメラマップ</h1>
+    <div class="sub">世界中の定点ライブカメラを地図から見る。マーカーをタップすると大きな画面でリアルタイム映像が出ます。</div>
     <div id="controls">
       <span id="chips"></span>
       <input id="search" type="search" placeholder="地名・川名・カメラ名で検索">
@@ -52,7 +52,7 @@
     </div>
   </header>
   <div id="map"></div>
-  <footer>地図: 国土地理院タイル（出典: 国土地理院）／ カメラ映像は各配信元の公開ページ・公開画像へのリンク・埋め込みです。各カメラの著作権は配信元に帰属します。</footer>
+  <footer>地図: OpenStreetMap（&copy; OSM contributors）／ 国土地理院タイル（出典: 国土地理院）／ カメラ映像は各配信元の公開ページへのリンク・埋め込みです。各カメラの著作権は配信元に帰属します。</footer>
 </div>
 
 <div id="viewer" role="dialog" aria-modal="true">
@@ -74,8 +74,15 @@
   var gsiPhoto = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
     attribution: '出典: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>', maxZoom: 18
   });
-  var map = L.map('map', { layers: [gsiStd] }).setView([37.6, 138.0], 5);
-  L.control.layers({ '地理院地図': gsiStd, '航空写真': gsiPhoto }).addTo(map);
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors', maxZoom: 19
+  });
+  var map = L.map('map', { layers: [osm], worldCopyJump: true }).setView([30, 138], 3);
+  if ((window.CAMERAS || []).length) {
+    var bounds = L.latLngBounds((window.CAMERAS || []).map(function (c) { return [c.lat, c.lon]; }));
+    map.fitBounds(bounds, { padding: [20, 20], maxZoom: 4 });
+  }
+  L.control.layers({ '世界地図 (OSM)': osm, '地理院地図': gsiStd, '航空写真': gsiPhoto }).addTo(map);
 
   var cluster = L.markerClusterGroup({ maxClusterRadius: 45 });
   map.addLayer(cluster);

@@ -1,4 +1,4 @@
-# 日本ライブカメラマップ
+# 世界ライブカメラマップ
 
 **▶ 公開中: https://ykato27.github.io/japan-cam-map/**
 
