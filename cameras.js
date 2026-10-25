@@ -1,17 +1,5 @@
-// 検証済みライブカメラ（YouTubeライブのみ）2026-10-25
+// 検証済みライブカメラ（YouTubeライブ・埋め込み再生確認済み）2026-10-25
 window.CAMERAS = [
- {
-  "category": "山・自然",
-  "city": "斜里町",
-  "lat": 44.092,
-  "lon": 145.087,
-  "name": "知床・知床自然センター（ForestNotes）",
-  "pref": "北海道",
-  "source": "https://www.youtube.com/watch?v=6r2nBMl-Kig",
-  "type": "youtube",
-  "videoId": "6r2nBMl-Kig",
-  "provider": "Forest Notes"
- },
  {
   "category": "山・自然",
   "city": "小清水町",
@@ -83,18 +71,6 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "fd-61wNrxIo",
   "provider": "サンエス電気通信株式会社"
- },
- {
-  "name": "ニセコアンヌプリ国際スキー場",
-  "pref": "北海道",
-  "city": "ニセコ町",
-  "lat": 42.869,
-  "lon": 140.685,
-  "category": "山・自然",
-  "type": "youtube",
-  "videoId": "F5aeMEfP0PY",
-  "source": "https://www.youtube.com/watch?v=F5aeMEfP0PY",
-  "provider": "ニセコアンヌプリ国際スキー場"
  },
  {
   "category": "空港",
@@ -217,18 +193,6 @@ window.CAMERAS = [
   "provider": "HAPPO-ONE LIVE"
  },
  {
-  "category": "観光地",
-  "city": "草津町",
-  "lat": 36.623,
-  "lon": 138.597,
-  "name": "草津温泉 湯畑",
-  "pref": "群馬県",
-  "source": "https://www.youtube.com/watch?v=B_Sc1v1qR-g",
-  "type": "youtube",
-  "videoId": "B_Sc1v1qR-g",
-  "provider": "草津町"
- },
- {
   "name": "金沢駅東口",
   "pref": "石川県",
   "city": "金沢市",
@@ -265,18 +229,6 @@ window.CAMERAS = [
   "provider": "国宝松本城"
  },
  {
-  "category": "山・自然",
-  "city": "諏訪市",
-  "lat": 36.048,
-  "lon": 138.114,
-  "name": "諏訪湖（SBC）",
-  "pref": "長野県",
-  "source": "https://www.youtube.com/watch?v=qGbyL_bEKt0",
-  "type": "youtube",
-  "videoId": "qGbyL_bEKt0",
-  "provider": "SBC信越放送"
- },
- {
   "name": "成田国際空港 A滑走路",
   "pref": "千葉県",
   "city": "成田市",
@@ -311,18 +263,6 @@ window.CAMERAS = [
   "videoId": "NsFHt76uwh8",
   "source": "https://www.youtube.com/watch?v=NsFHt76uwh8",
   "provider": "浅草中屋チャンネル -ASAKUSA NAKAYA CHANNEL-"
- },
- {
-  "category": "都市",
-  "city": "千代田区",
-  "lat": 35.698,
-  "lon": 139.773,
-  "name": "秋葉原・中央通り交差点",
-  "pref": "東京都",
-  "source": "https://www.youtube.com/watch?v=tz3LqWOMMOM",
-  "type": "youtube",
-  "videoId": "tz3LqWOMMOM",
-  "provider": "愛三電機"
  },
  {
   "category": "都市",
@@ -373,30 +313,6 @@ window.CAMERAS = [
   "provider": "LIVE-TOKYO-SKY"
  },
  {
-  "category": "その他",
-  "city": "笛吹市",
-  "lat": 35.657,
-  "lon": 138.639,
-  "name": "JR中央本線 熊野権現踏切",
-  "pref": "山梨県",
-  "source": "https://www.youtube.com/watch?v=eXp3yZMylgI",
-  "type": "youtube",
-  "videoId": "eXp3yZMylgI",
-  "provider": "TheDramatic中央本線"
- },
- {
-  "category": "観光地",
-  "city": "宮津市",
-  "lat": 35.569,
-  "lon": 135.196,
-  "name": "天橋立（傘松公園）",
-  "pref": "京都府",
-  "source": "https://www.youtube.com/watch?v=hVdb6BbxEdc",
-  "type": "youtube",
-  "videoId": "hVdb6BbxEdc",
-  "provider": "天橋立傘松公園ライブカメラ"
- },
- {
   "name": "羽田空港 第2ターミナル",
   "pref": "東京都",
   "city": "大田区",
@@ -445,18 +361,6 @@ window.CAMERAS = [
   "provider": "ふじよしだ観光・イベント広報"
  },
  {
-  "name": "横浜 汽車道・みなとみらい",
-  "pref": "神奈川県",
-  "city": "横浜市中区",
-  "lat": 35.451,
-  "lon": 139.64,
-  "category": "港",
-  "type": "youtube",
-  "videoId": "QsdJxYmXvsQ",
-  "source": "https://www.youtube.com/watch?v=QsdJxYmXvsQ",
-  "provider": "横浜汽車道ライブカメラ /Live Cam Yokohama Japan"
- },
- {
   "category": "山・自然",
   "city": "山中湖村",
   "lat": 35.43,
@@ -479,18 +383,6 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "LQ2h_Uhmezg",
   "provider": "ライブカメラ24"
- },
- {
-  "category": "観光地",
-  "city": "南丹市",
-  "lat": 35.309,
-  "lon": 135.647,
-  "name": "美山かやぶきの里",
-  "pref": "京都府",
-  "source": "https://www.youtube.com/watch?v=W0rAn0GJaH8",
-  "type": "youtube",
-  "videoId": "W0rAn0GJaH8",
-  "provider": "森の京都"
  },
  {
   "name": "葉山 富士山・江の島",
@@ -577,30 +469,6 @@ window.CAMERAS = [
   "provider": "ライブカメラ24"
  },
  {
-  "category": "観光地",
-  "city": "高梁市",
-  "lat": 34.809,
-  "lon": 133.621,
-  "name": "備中松山城 雲海展望台",
-  "pref": "岡山県",
-  "source": "https://www.youtube.com/watch?v=JnVbhapQxz8",
-  "type": "youtube",
-  "videoId": "JnVbhapQxz8",
-  "provider": "備中松山城雲海展望台ライブ配信"
- },
- {
-  "category": "空港",
-  "city": "豊中市",
-  "lat": 34.785,
-  "lon": 135.438,
-  "name": "大阪国際空港（伊丹空港）",
-  "pref": "大阪府",
-  "source": "https://www.youtube.com/watch?v=1DZNO-GQlHI",
-  "type": "youtube",
-  "videoId": "1DZNO-GQlHI",
-  "provider": "大阪飛行機ライブカメラ"
- },
- {
   "category": "動物",
   "city": "大阪市",
   "lat": 34.686,
@@ -649,18 +517,6 @@ window.CAMERAS = [
   "provider": "読売テレビニュース"
  },
  {
-  "category": "その他",
-  "city": "淡路市",
-  "lat": 34.613,
-  "lon": 135.021,
-  "name": "明石海峡大橋（淡路SAから）",
-  "pref": "兵庫県",
-  "source": "https://www.youtube.com/watch?v=wVYiVODQAkg",
-  "type": "youtube",
-  "videoId": "wVYiVODQAkg",
-  "provider": "JBハイウェイサービス"
- },
- {
   "category": "動物",
   "city": "鳥羽市",
   "lat": 34.484,
@@ -695,18 +551,6 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "YnCXegVqpKA",
   "provider": "RCC NEWS DIG"
- },
- {
-  "category": "その他",
-  "city": "坂出市",
-  "lat": 34.391,
-  "lon": 133.822,
-  "name": "瀬戸大橋（与島から）",
-  "pref": "香川県",
-  "source": "https://www.youtube.com/watch?v=-QSsYYjJbnI",
-  "type": "youtube",
-  "videoId": "-QSsYYjJbnI",
-  "provider": "KBN香川テレビ放送網"
  },
  {
   "category": "動物",
@@ -769,18 +613,6 @@ window.CAMERAS = [
   "provider": "tysテレビ山口"
  },
  {
-  "name": "道後温泉本館",
-  "pref": "愛媛県",
-  "city": "松山市",
-  "lat": 33.851,
-  "lon": 132.786,
-  "category": "観光地",
-  "type": "youtube",
-  "videoId": "BY3-_S-OCzw",
-  "source": "https://www.youtube.com/watch?v=BY3-_S-OCzw",
-  "provider": "【公式】道後温泉"
- },
- {
   "name": "福岡 天神一丁目交差点",
   "pref": "福岡県",
   "city": "福岡市中央区",
@@ -841,42 +673,6 @@ window.CAMERAS = [
   "provider": "長崎ケーブルメディア[公式]"
  },
  {
-  "name": "桜島（鹿児島市）",
-  "pref": "鹿児島県",
-  "city": "鹿児島市",
-  "lat": 31.584,
-  "lon": 130.541,
-  "category": "山・自然",
-  "type": "youtube",
-  "videoId": "Wf0ujF_U9Q4",
-  "source": "https://www.youtube.com/watch?v=Wf0ujF_U9Q4",
-  "provider": "KYT 情報カメラ(鹿児島市) -鹿児島読売テレビ"
- },
- {
-  "category": "港",
-  "city": "小笠原村",
-  "lat": 27.095,
-  "lon": 142.197,
-  "name": "小笠原・父島 二見港",
-  "pref": "東京都",
-  "source": "https://www.youtube.com/watch?v=Ad6A1dzNftI",
-  "type": "youtube",
-  "videoId": "Ad6A1dzNftI",
-  "provider": "小笠原村役場"
- },
- {
-  "category": "観光地",
-  "city": "本部町",
-  "lat": 26.694,
-  "lon": 127.878,
-  "name": "沖縄海洋博公園・遠見台",
-  "pref": "沖縄県",
-  "source": "https://www.youtube.com/watch?v=RYTG2_d5-1M",
-  "type": "youtube",
-  "videoId": "RYTG2_d5-1M",
-  "provider": "海洋博公園"
- },
- {
   "name": "那覇 国際通り",
   "pref": "沖縄県",
   "city": "那覇市",
@@ -887,18 +683,6 @@ window.CAMERAS = [
   "videoId": "ZBBezhwzCzY",
   "source": "https://www.youtube.com/watch?v=ZBBezhwzCzY",
   "provider": "バクノビジョン"
- },
- {
-  "category": "空港",
-  "city": "那覇市",
-  "lat": 26.196,
-  "lon": 127.646,
-  "name": "那覇空港",
-  "pref": "沖縄県",
-  "source": "https://www.youtube.com/watch?v=rjKspIZjdXU",
-  "type": "youtube",
-  "videoId": "rjKspIZjdXU",
-  "provider": "日テレNEWS"
  },
  {
   "category": "観光地",
