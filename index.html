@@ -26,6 +26,8 @@
   .cam-popup img.still { width: 100%; border-radius: 6px; background: #111; aspect-ratio: 16/9; object-fit: cover; }
   .cam-popup .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 6px; overflow: hidden; }
   .cam-popup iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .cam-popup .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; }
+  .cam-popup .play-btn { position: absolute; inset: 0; margin: auto; width: 150px; height: 44px; border: none; border-radius: 999px; background: rgba(200, 30, 30, .92); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
   .cam-popup .src { font-size: 11px; margin-top: 6px; }
   .badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 4px; background: #e8f1f8; color: #0b3d66; margin-right: 4px; }
   footer { font-size: 10px; color: #666; padding: 4px 10px; background: #f4f6f8; }
@@ -71,7 +73,9 @@
 
   function mediaHtml(c) {
     if (c.type === 'youtube') {
-      return '<div class="video-wrap"><iframe data-yt="' + c.videoId + '" allowfullscreen loading="lazy" title="' + c.name + '"></iframe></div>';
+      return '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
+        + '<button class="play-btn" data-play="' + c.videoId + '">▶ ライブを見る</button></div>'
+        + '<div class="meta">開いただけでは広告は出ません。再生は任意です（YouTube配信のため、再生開始時に広告が入る場合があります）</div>';
     }
     if (c.type === 'image') {
       return '<img class="still" data-img="' + c.image + '" alt="' + c.name + '">'
@@ -92,8 +96,11 @@
     if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
     if (!popupEl) return;
     if (c.type === 'youtube') {
-      var f = popupEl.querySelector('iframe[data-yt]');
-      if (f) f.src = 'https://www.youtube-nocookie.com/embed/' + c.videoId + '?autoplay=1&mute=1&playsinline=1';
+      var btn = popupEl.querySelector('[data-play]');
+      if (btn) btn.addEventListener('click', function () {
+        var wrap = btn.parentElement;
+        wrap.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allowfullscreen title="' + c.name + '"></iframe>';
+      });
     }
     if (c.type === 'image') {
       var img = popupEl.querySelector('img[data-img]');
