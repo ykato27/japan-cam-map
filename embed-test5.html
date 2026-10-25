@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<title>japan sweep v1</title></head>
+<body>
+<h1>japan sweep v1</h1>
+<div id="status">RUNNING</div>
+<pre id="out"></pre>
+<div id="players"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var VIDEOS = [
+    ["m0zx7vPJtC0", "五月山動物園・ウォンバット"],
+    ["NzKVoh7ILBs", "オホーツクとっかりセンター・アザラシプール"],
+    ["EeU_fG7pmX4", "熊本市動植物園・マサイキリン"],
+    ["j-ieZ34xfC4", "久留米市鳥類センター・クジャク"],
+    ["xbtcl8WuEZ4", "体感型動物園iZoo・ゾウガメ牧場"],
+    ["g-tfZ65pdn4", "湯島「猫島」定点カメラ"],
+    ["cIuJ4xSUQBM", "地獄谷野猿公苑・スノーモンキー（温泉ザル）"],
+    ["ozcrgj_BgKE", "オホーツクとっかりセンター・アザラシプール"],
+    ["CcgT5MFiL6Q", "知床・動物観察カメラ"],
+    ["mP_Nks3acIM", "やんばるの森・水場カメラ（ヤンバルクイナ）"],
+    ["qN6Xwpi-lnA", "米子水鳥公園（中海の水鳥）"],
+    ["POYd3MeJ7UY", "旭山動物園・ペンギン放飼場"],
+    ["HXp5x6llMo4", "軽井沢・小さな鳥とリスの餌台"],
+    ["1NtYMzERRxs", "新冠・馬の放牧地（コノド）"],
+    ["hH_5hImRDJA", "コウノトリの巣塔（豊岡）"],
+    ["g-tfZ65pdn4", "湯島（猫島）の猫たち"]
+  ];
+  var BATCH = 4, WAIT = 30000;
+  var results = {}, order = [], doneCount = 0, idx = 0, okCount = 0;
+  var out = document.getElementById('out'), statusEl = document.getElementById('status');
+  function render() {
+    out.textContent = order.map(function (id) { return results[id]; }).join('\n');
+    statusEl.textContent = (idx >= VIDEOS.length && doneCount >= VIDEOS.length) ? ('DONE: ' + okCount + '/' + VIDEOS.length + ' playing') : ('RUNNING ' + doneCount + '/' + VIDEOS.length);
+    if (idx >= VIDEOS.length && doneCount >= VIDEOS.length) document.title = 'DONE world sweep';
+  }
+  function batch() {
+    if (idx >= VIDEOS.length) { render(); return; }
+    var slice = VIDEOS.slice(idx, idx + BATCH); idx += BATCH;
+    var pending = slice.length, finished = false;
+    function step() { if (--pending === 0 && !finished) { finished = true; setTimeout(batch, 300); } }
+    slice.forEach(function (v) {
+      var id = v[0], name = v[1]; order.push(id);
+      var host = document.createElement('div'); host.id = 'p_' + id;
+      document.getElementById('players').appendChild(host);
+      var settled = false;
+      function settle(text, isOk) { if (settled) return; settled = true; results[id] = text; if (isOk) okCount++; doneCount++; render(); step(); }
+      try {
+        new YT.Player(host, { videoId: id, width: 320, height: 180, playerVars: { autoplay: 1, mute: 1, playsinline: 1 }, events: {
+          onReady: function (e) { try { e.target.mute(); e.target.playVideo(); } catch (err) {}
+            setTimeout(function () { var st = -9, t = -1; try { st = e.target.getPlayerState(); t = e.target.getCurrentTime(); } catch (err) {}
+              if ((st === 1 || st === 3) && t > 0.5) settle('PLAYING: ' + name, true);
+              else settle('READY(state=' + st + ',t=' + t.toFixed(1) + '): ' + name, false);
+            }, WAIT);
+          },
+          onError: function (e) { settle('ERROR ' + e.data + ': ' + name, false); }
+        }});
+      } catch (err) { settle('EXC: ' + name, false); }
+      setTimeout(function () { settle('TIMEOUT: ' + name, false); }, WAIT + 45000);
+    });
+  }
+  function onYouTubeIframeAPIReady() { batch(); }
+</script>
+</body></html>
