@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<title>world sweep v1</title></head>
+<body>
+<h1>world sweep v1</h1>
+<div id="status">RUNNING</div>
+<pre id="out"></pre>
+<div id="players"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var VIDEOS = [
+    ["0P_LBKqVbfs", "テンベ象公園の水場（サファリ）"],
+    ["7x9gIY63FEw", "ンコルホ・ブッシュロッジの水場"],
+    ["i1QL7zLACeA", "ジュマ保護区の水場"],
+    ["DsNtwGJXTTs", "タウ・ウォーターホール"],
+    ["AeMUdOPFcXI", "エトーシャ・オカウクエジョの水場"],
+    ["ydYDqZQpim8", "ナミブ砂漠の水場"],
+    ["EwTH5yY7Mks", "ブルックス滝のヒグマ（サケ漁）"],
+    ["B4-L2nfGcuE", "ビッグベアのハクトウワシ巣"],
+    ["GGIE1E-kaMQ", "デコラ・ノースのハクトウワシ巣"],
+    ["rBh4FpcdV7o", "成都パンダ"],
+    ["FtABVyHxNY8", "臥龍パンダ"],
+    ["abbR-Ttd-cA", "モントレー水族館ラッコ"],
+    ["zL68biE6wAs", "モントレー水族館ミズクラゲ"],
+    ["n_GpVsz4nHU", "モントレー水族館外洋水槽"],
+    ["a0i1Kg6fROg", "チャーチルのオーロラ"],
+    ["muO2i8ShZrY", "チャーチルのホッキョクグマ"],
+    ["gXKuUyKt8mc", "キラウエア火山（USGS公式）"],
+    ["kXD4A9uFHcg", "グリンダヴィーク火山"],
+    ["WIUg8wzhq1g", "ワイキキ・サウスショアの波"],
+    ["4CK0CsimBHs", "ワイキキビーチ（マリオット前）"],
+    ["WtoxxHADnGk", "パナマのフルーツ餌台（熱帯の鳥）"],
+    ["fO9e9jnhYK8", "ISSから見た地球（4Kライブ）"],
+    ["z-jYdOIKcTQ", "タイムズスクエア（ニューヨーク）"],
+    ["zMCea32gpmg", "アビーロード横断歩道（ロンドン）"],
+    ["r8N6IsoIkTk", "ベネチア・大運河"],
+    ["OzYp4NRZlwQ", "エッフェル塔（パリ）"],
+    ["43qH0tDA6lM", "ダムラク（アムステルダム）"],
+    ["GF1DYvxDq44", "ハンブルク港・アルトナ"],
+    ["pFebijydkDM", "フリーモントストリート（ラスベガス）"],
+    ["V7_orOtu-oo", "ラスベガス空港（ハリー・リード国際空港）"],
+    ["nprx_Bz9GMs", "デュバルストリート（キーウェスト）"],
+    ["2IQmpCXbOmM", "マホービーチとプリンセス・ジュリアナ空港"],
+    ["4JS4vSkTS7I", "シドニーハーバー"],
+    ["Z8NTLkEFZjg", "香港・ビクトリアハーバー（尖沙咀）"],
+    ["z_fY1pj1VBw", "台北101と象山（台北）"],
+    ["uwuQyyxiaHI", "盤浦大橋と漢江（ソウル）"],
+    ["w8QCbgRo6FY", "バンコク市街（ウィパワディー通り）"],
+    ["qx7gry390YA", "ナイアガラの滝"],
+    ["bwQyNMjsG3k", "コパカバーナビーチ（リオデジャネイロ）"],
+    ["G2_LDjI5t_I", "ブローバーグストランドとテーブルマウンテン（ケープタウン）"]
+  ];
+  var BATCH = 4, WAIT = 30000;
+  var results = {}, order = [], doneCount = 0, idx = 0, okCount = 0;
+  var out = document.getElementById('out'), statusEl = document.getElementById('status');
+  function render() {
+    out.textContent = order.map(function (id) { return results[id]; }).join('\n');
+    statusEl.textContent = (idx >= VIDEOS.length && doneCount >= VIDEOS.length) ? ('DONE: ' + okCount + '/' + VIDEOS.length + ' playing') : ('RUNNING ' + doneCount + '/' + VIDEOS.length);
+    if (idx >= VIDEOS.length && doneCount >= VIDEOS.length) document.title = 'DONE world sweep';
+  }
+  function batch() {
+    if (idx >= VIDEOS.length) { render(); return; }
+    var slice = VIDEOS.slice(idx, idx + BATCH); idx += BATCH;
+    var pending = slice.length, finished = false;
+    function step() { if (--pending === 0 && !finished) { finished = true; setTimeout(batch, 300); } }
+    slice.forEach(function (v) {
+      var id = v[0], name = v[1]; order.push(id);
+      var host = document.createElement('div'); host.id = 'p_' + id;
+      document.getElementById('players').appendChild(host);
+      var settled = false;
+      function settle(text, isOk) { if (settled) return; settled = true; results[id] = text; if (isOk) okCount++; doneCount++; render(); step(); }
+      try {
+        new YT.Player(host, { videoId: id, width: 320, height: 180, playerVars: { autoplay: 1, mute: 1, playsinline: 1 }, events: {
+          onReady: function (e) { try { e.target.mute(); e.target.playVideo(); } catch (err) {}
+            setTimeout(function () { var st = -9, t = -1; try { st = e.target.getPlayerState(); t = e.target.getCurrentTime(); } catch (err) {}
+              if ((st === 1 || st === 3) && t > 0.5) settle('PLAYING: ' + name, true);
+              else settle('READY(state=' + st + ',t=' + t.toFixed(1) + '): ' + name, false);
+            }, WAIT);
+          },
+          onError: function (e) { settle('ERROR ' + e.data + ': ' + name, false); }
+        }});
+      } catch (err) { settle('EXC: ' + name, false); }
+      setTimeout(function () { settle('TIMEOUT: ' + name, false); }, WAIT + 45000);
+    });
+  }
+  function onYouTubeIframeAPIReady() { batch(); }
+</script>
+</body></html>
