@@ -49,4 +49,93 @@ function onYouTubeIframeAPIReady() { nextBatch(); }
 var tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
 document.head.appendChild(tag);
+</script></body></html>var IDS = [
+  ["0P_LBKqVbfs","テンベ象公園の水場（サファリ）"],
+  ["7x9gIY63FEw","ンコルホ・ブッシュロッジの水場"],
+  ["i1QL7zLACeA","ジュマ保護区の水場"],
+  ["DsNtwGJXTTs","タウ・ウォーターホール"],
+  ["AeMUdOPFcXI","エトーシャ・オカウクエジョの水場"],
+  ["ydYDqZQpim8","ナミブ砂漠の水場"],
+  ["EwTH5yY7Mks","ブルックス滝のヒグマ（サケ漁）"],
+  ["B4-L2nfGcuE","ビッグベアのハクトウワシ巣"],
+  ["GGIE1E-kaMQ","デコラ・ノースのハクトウワシ巣"],
+  ["rBh4FpcdV7o","成都パンダ"],
+  ["FtABVyHxNY8","臥龍パンダ"],
+  ["abbR-Ttd-cA","モントレー水族館ラッコ"],
+  ["zL68biE6wAs","モントレー水族館ミズクラゲ"],
+  ["n_GpVsz4nHU","モントレー水族館外洋水槽"],
+  ["a0i1Kg6fROg","チャーチルのオーロラ"],
+  ["muO2i8ShZrY","チャーチルのホッキョクグマ"],
+  ["gXKuUyKt8mc","キラウエア火山（USGS公式）"],
+  ["kXD4A9uFHcg","グリンダヴィーク火山"],
+  ["WIUg8wzhq1g","ワイキキ・サウスショアの波"],
+  ["4CK0CsimBHs","ワイキキビーチ（マリオット前）"],
+  ["WtoxxHADnGk","パナマのフルーツ餌台（熱帯の鳥）"],
+  ["fO9e9jnhYK8","ISSから見た地球（4Kライブ）"],
+  ["z-jYdOIKcTQ","タイムズスクエア（ニューヨーク）"],
+  ["zMCea32gpmg","アビーロード横断歩道（ロンドン）"],
+  ["r8N6IsoIkTk","ベネチア・大運河"],
+  ["OzYp4NRZlwQ","エッフェル塔（パリ）"],
+  ["43qH0tDA6lM","ダムラク（アムステルダム）"],
+  ["GF1DYvxDq44","ハンブルク港・アルトナ"],
+  ["pFebijydkDM","フリーモントストリート（ラスベガス）"],
+  ["V7_orOtu-oo","ラスベガス空港（ハリー・リード国際空港）"],
+  ["nprx_Bz9GMs","デュバルストリート（キーウェスト）"],
+  ["2IQmpCXbOmM","マホービーチとプリンセス・ジュリアナ空港"],
+  ["4JS4vSkTS7I","シドニーハーバー"],
+  ["Z8NTLkEFZjg","香港・ビクトリアハーバー（尖沙咀）"],
+  ["z_fY1pj1VBw","台北101と象山（台北）"],
+  ["uwuQyyxiaHI","盤浦大橋と漢江（ソウル）"],
+  ["w8QCbgRo6FY","バンコク市街（ウィパワディー通り）"],
+  ["qx7gry390YA","ナイアガラの滝"],
+  ["bwQyNMjsG3k","コパカバーナビーチ（リオデジャネイロ）"],
+  ["G2_LDjI5t_I","ブローバーグストランドとテーブルマウンテン（ケープタウン）"]
+];
+var BATCH = 3, WAIT = 32000;
+var idx = 0, done = 0, playing = 0;
+var results = {};
+function flush() {
+  document.getElementById('results').textContent = VIDEOS.filter(function (v) { return results[v[0]]; })
+    .map(function (v) { return results[v[0]] + ' | ' + v[0] + ' | ' + v[1]; }).join('\n');
+}
+function nextBatch() {
+  if (idx >= VIDEOS.length) {
+    document.getElementById('status').textContent = 'DONE: ' + playing + '/' + VIDEOS.length + ' playing';
+    document.title = 'DONE embed sweep A';
+    return;
+  }
+  var slice = VIDEOS.slice(idx, idx + BATCH);
+  document.getElementById('status').textContent = 'batch ' + (idx / BATCH + 1) + ' / ' + Math.ceil(VIDEOS.length / BATCH);
+  var host = document.getElementById('players');
+  host.innerHTML = '';
+  var local = {}, pls = {};
+  slice.forEach(function (v, i) {
+    var div = document.createElement('div'); div.id = 'bp' + i; host.appendChild(div);
+    local[v[0]] = 'NO RESPONSE';
+    pls[v[0]] = new YT.Player('bp' + i, { width: 320, height: 180, videoId: v[0],
+      playerVars: { playsinline: 1 },
+      events: {
+        onReady: function (e) { if (local[v[0]] === 'NO RESPONSE') local[v[0]] = 'READY-NOT-PLAYING'; e.target.mute(); e.target.playVideo(); },
+        onStateChange: function (e) { if (e.data === YT.PlayerState.PLAYING) local[v[0]] = 'PLAYING'; },
+        onError: function (e) { local[v[0]] = 'ERROR ' + e.data; }
+      }});
+  });
+  setTimeout(function () {
+    slice.forEach(function (v) { if (local[v[0]] === 'READY-NOT-PLAYING' && pls[v[0]].playVideo) { try { pls[v[0]].playVideo(); } catch (e) {} } });
+  }, WAIT / 2);
+  setTimeout(function () {
+    slice.forEach(function (v) {
+      results[v[0]] = local[v[0]];
+      if (local[v[0]] === 'PLAYING') playing++;
+      done++;
+    });
+    flush();
+    idx += BATCH;
+    nextBatch();
+  }, WAIT);
+}
+function onYouTubeIframeAPIReady() { nextBatch(); }
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
 </script></body></html>
