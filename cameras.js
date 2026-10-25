@@ -1,4 +1,4 @@
-// ライブカメラデータ: 日本84件 + 海外45件 (2026-10-25 動物・自然を大幅追加)
+// ライブカメラデータ: 129件 (うち広告なし直再生 10件)
 window.CAMERAS = [
  {
   "category": "山・自然",
@@ -849,8 +849,9 @@ window.CAMERAS = [
   "name": "テンベ象公園の水場（サファリ）",
   "pref": "南アフリカ",
   "source": "https://www.youtube.com/watch?v=0P_LBKqVbfs",
-  "type": "youtube",
-  "videoId": "0P_LBKqVbfs"
+  "type": "hls",
+  "videoId": "0P_LBKqVbfs",
+  "stream": "https://mediamtx-0.euw4.gcp.prod.explore.org:8888/955_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -861,8 +862,9 @@ window.CAMERAS = [
   "name": "タウ・ウォーターホール",
   "pref": "南アフリカ",
   "source": "https://www.youtube.com/watch?v=DsNtwGJXTTs",
-  "type": "youtube",
-  "videoId": "DsNtwGJXTTs"
+  "type": "hls",
+  "videoId": "DsNtwGJXTTs",
+  "stream": "https://mediamtx-0.euw4.gcp.prod.explore.org:8888/316_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -899,8 +901,9 @@ window.CAMERAS = [
   "notes": "見頃はサケ遡上期（例年6月下旬〜10月）。オフシーズンは滝の定点映像中心になる可能性あり",
   "pref": "アメリカ",
   "source": "https://www.youtube.com/watch?v=EwTH5yY7Mks",
-  "type": "youtube",
-  "videoId": "EwTH5yY7Mks"
+  "type": "hls",
+  "videoId": "EwTH5yY7Mks",
+  "stream": "https://mediamtx-0.usw1.gcp.prod.explore.org:8888/239_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -923,8 +926,9 @@ window.CAMERAS = [
   "name": "デコラ・ノースのハクトウワシ巣",
   "pref": "アメリカ",
   "source": "https://www.youtube.com/watch?v=GGIE1E-kaMQ",
-  "type": "youtube",
-  "videoId": "GGIE1E-kaMQ"
+  "type": "hls",
+  "videoId": "GGIE1E-kaMQ",
+  "stream": "https://mediamtx-1.usc1.gcp.prod.explore.org:8888/184_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -975,8 +979,9 @@ window.CAMERAS = [
   "notes": "見頃は暗夜期（秋〜春）。夏季は白夜でオーロラは見えない",
   "pref": "カナダ",
   "source": "https://www.youtube.com/watch?v=a0i1Kg6fROg",
-  "type": "youtube",
-  "videoId": "a0i1Kg6fROg"
+  "type": "hls",
+  "videoId": "a0i1Kg6fROg",
+  "stream": "https://mediamtx-1.use4.gcp.prod.explore.org:8888/586_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -988,8 +993,9 @@ window.CAMERAS = [
   "notes": "ホッキョクグマのピークは10〜11月（結氷待ちの時期）。オフシーズンは出現が減る",
   "pref": "カナダ",
   "source": "https://www.youtube.com/watch?v=muO2i8ShZrY",
-  "type": "youtube",
-  "videoId": "muO2i8ShZrY"
+  "type": "hls",
+  "videoId": "muO2i8ShZrY",
+  "stream": "https://mediamtx-1.use4.gcp.prod.explore.org:8888/281_muxed/index.m3u8"
  },
  {
   "category": "山・自然",
@@ -1051,8 +1057,9 @@ window.CAMERAS = [
   "notes": "サムネイルはカード型（右半分は実写真）。オオハシなど熱帯の鳥が次々に来る",
   "pref": "パナマ",
   "source": "https://www.youtube.com/watch?v=WtoxxHADnGk",
-  "type": "youtube",
-  "videoId": "WtoxxHADnGk"
+  "type": "hls",
+  "videoId": "WtoxxHADnGk",
+  "stream": "https://mediamtx-0.use4.gcp.prod.explore.org:8888/118_muxed/index.m3u8"
  },
  {
   "category": "その他",
@@ -1341,8 +1348,9 @@ window.CAMERAS = [
   "notes": "explore.orgのWolong Grove Panda Cam。iPanda系ではない（落選した成都rBh4FpcdV7o／臥龍FtABVyHxNY8とは別配信・別運営）。oEmbed 200、hqdefault_live 19,566B。サムネイルはexplore公式のポスター型静止画（モントレー水族館・ISSと同タイプで、実フレームそのものではない）。同チャンネル（Explore Panda and Polar Bear Cams）のチャーチル・ホッキョクグマは既に埋め込み判定を通過し掲載中",
   "pref": "中国",
   "source": "https://www.youtube.com/watch?v=BsZEOvS3qTM",
-  "type": "youtube",
-  "videoId": "BsZEOvS3qTM"
+  "type": "hls",
+  "videoId": "BsZEOvS3qTM",
+  "stream": "https://mediamtx-1.usw1.gcp.prod.explore.org:8888/33_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -1354,8 +1362,9 @@ window.CAMERAS = [
   "notes": "エワソ・ンギロ川のヒッポプールを見下ろす常設カメラ。カバのほかゾウ・キリン・シマウマ等。oEmbed 200、hqdefault_live 28,181B（カバ群の実景。exploreのポスター型の可能性あり）",
   "pref": "ケニア",
   "source": "https://www.youtube.com/watch?v=oORXfTviuCs",
-  "type": "youtube",
-  "videoId": "oORXfTviuCs"
+  "type": "hls",
+  "videoId": "oORXfTviuCs",
+  "stream": "https://mediamtx-0.euw4.gcp.prod.explore.org:8888/47_muxed/index.m3u8"
  },
  {
   "category": "動物",
@@ -1466,8 +1475,10 @@ window.CAMERAS = [
   "notes": "公式チャンネルのライブ。ライブサムネイルは公式ロゴのカード型（実フレームではない）が、配信自体は配信中を確認。猿の温泉入浴は厳冬期（1〜2月）中心で、暖かい時期は苑内で過ごす様子が中心",
   "pref": "長野県",
   "source": "https://www.youtube.com/watch?v=cIuJ4xSUQBM",
-  "type": "youtube",
-  "videoId": "cIuJ4xSUQBM"
+  "type": "image",
+  "videoId": "cIuJ4xSUQBM",
+  "image": "https://jigokudani-yaenkoen.co.jp/livecam2/camera.php?action=image&seq=",
+  "refreshSec": 5
  },
  {
   "category": "動物",
