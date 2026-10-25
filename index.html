@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日本ライブカメラマップ（試作）</title>
+<title>日本ライブカメラマップ</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
@@ -20,27 +20,33 @@
   #search { flex: 1; min-width: 140px; padding: 6px 10px; border-radius: 999px; border: none; font-size: 13px; }
   #count { font-size: 12px; }
   #map { flex: 1; }
-  .cam-popup { width: min(560px, 88vw); }
-  .cam-popup h3 { margin: 0 0 2px; font-size: 14px; }
-  .cam-popup .meta { font-size: 11px; color: #555; margin-bottom: 6px; }
-  .cam-popup img.still { width: 100%; border-radius: 6px; background: #111; aspect-ratio: 16/9; object-fit: cover; }
-  .cam-popup .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; background: #111; border-radius: 6px; overflow: hidden; }
-  .cam-popup iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .cam-popup .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; }
-  .cam-popup .play-btn { position: absolute; inset: 0; margin: auto; width: 150px; height: 44px; border: none; border-radius: 999px; background: rgba(200, 30, 30, .92); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
-  .cam-popup .src { font-size: 11px; margin-top: 6px; }
   .badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 4px; background: #e8f1f8; color: #0b3d66; margin-right: 4px; }
   footer { font-size: 10px; color: #666; padding: 4px 10px; background: #f4f6f8; }
+
+  /* 大画面ビューア */
+  #viewer { position: fixed; inset: 0; background: rgba(0,0,0,.78); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 10px; }
+  #viewer.open { display: flex; }
+  .viewer-box { width: min(1180px, 97vw); max-height: 96vh; background: #fff; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .viewer-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px 4px; }
+  .viewer-head h3 { margin: 0; font-size: 18px; flex: 1; }
+  .viewer-close { border: none; background: #eef1f4; border-radius: 999px; width: 36px; height: 36px; font-size: 17px; cursor: pointer; flex: none; }
+  .viewer-media { position: relative; width: 100%; aspect-ratio: 16/9; max-height: 76vh; background: #111; }
+  .viewer-media .video-wrap { position: absolute; inset: 0; }
+  .viewer-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .viewer-media img.still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .viewer-media .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; }
+  .viewer-media .play-btn { position: absolute; inset: 0; margin: auto; width: 210px; height: 58px; border: none; border-radius: 999px; background: rgba(200, 30, 30, .94); color: #fff; font-size: 17px; font-weight: 700; cursor: pointer; }
+  .viewer-foot { padding: 8px 14px 12px; font-size: 12px; color: #333; }
+  .viewer-foot .meta { font-size: 11px; color: #555; margin-bottom: 4px; }
 </style>
 </head>
 <body>
 <div id="app">
   <header>
-    <h1>🗾 日本ライブカメラマップ <span class="sub">試作版</span></h1>
-    <div class="sub">日本中の定点カメラを地図から見る。マーカーをタップすると最新の映像／画像が出ます。</div>
+    <h1>🗾 日本ライブカメラマップ</h1>
+    <div class="sub">日本中の定点ライブカメラを地図から見る。マーカーをタップすると大きな画面でリアルタイム映像が出ます。</div>
     <div id="controls">
       <span id="chips"></span>
-      <button id="adfree" class="chip" title="YouTube広告が出ない静止画カメラだけを表示">広告なし</button>
       <input id="search" type="search" placeholder="地名・川名・カメラ名で検索">
       <span id="count"></span>
     </div>
@@ -48,8 +54,17 @@
   <div id="map"></div>
   <footer>地図: 国土地理院タイル（出典: 国土地理院）／ カメラ映像は各配信元の公開ページ・公開画像へのリンク・埋め込みです。各カメラの著作権は配信元に帰属します。</footer>
 </div>
+
+<div id="viewer" role="dialog" aria-modal="true">
+  <div class="viewer-box">
+    <div class="viewer-head"><h3 id="v-title"></h3><button class="viewer-close" id="v-close" aria-label="閉じる">✕</button></div>
+    <div class="viewer-media" id="v-media"></div>
+    <div class="viewer-foot" id="v-foot"></div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.js"></script>
 <script src="cameras.js"></script>
 <script>
 (function () {
@@ -69,55 +84,58 @@
   (window.CAMERAS || []).forEach(function (c) { if (categories.indexOf(c.category) < 0) categories.push(c.category); });
 
   var activeCat = 'すべて';
-  var adFreeOnly = false;
   var query = '';
   var markers = [];
 
-  function mediaHtml(c) {
-    if (c.type === 'youtube') {
-      return '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
-        + '<button class="play-btn" data-play="' + c.videoId + '">▶ ライブを見る</button></div>'
-        + '<div class="meta">開いただけでは広告は出ません。再生は任意です（YouTube配信のため、再生開始時に広告が入る場合があります）</div>';
-    }
-    if (c.type === 'image') {
-      return '<img class="still" data-img="' + c.image + '" alt="' + c.name + '">'
-        + '<div class="meta">静止画（自動更新） <span data-clock></span> <span class="badge">広告なし</span></div>';
-    }
-    return '<div class="meta">外部ページで映像を見るタイプ</div>';
-  }
-
-  function popupHtml(c) {
-    return '<div class="cam-popup"><h3>' + c.name + '</h3>'
-      + '<div class="meta"><span class="badge">' + c.category + '</span>' + c.pref + ' ' + (c.city || '') + '</div>'
-      + mediaHtml(c)
-      + '<div class="src">配信元: ' + (c.provider || '公開ライブカメラ') + '<br><a href="' + c.source + '" target="_blank" rel="noopener">公式／配信ページを開く</a></div></div>';
-  }
-
+  var viewerEl = document.getElementById('viewer');
+  var vTitle = document.getElementById('v-title');
+  var vMedia = document.getElementById('v-media');
+  var vFoot = document.getElementById('v-foot');
   var refreshTimer = null;
-  function armPopupMedia(popupEl, c) {
+
+  function stopMedia() {
     if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
-    if (!popupEl) return;
+    vMedia.innerHTML = '';
+  }
+  function closeViewer() { viewerEl.classList.remove('open'); stopMedia(); }
+  document.getElementById('v-close').addEventListener('click', closeViewer);
+  viewerEl.addEventListener('click', function (e) { if (e.target === viewerEl) closeViewer(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeViewer(); });
+
+  function openViewer(c) {
+    stopMedia();
+    vTitle.textContent = c.name;
+    var foot = '<div class="meta"><span class="badge">' + c.category + '</span>' + c.pref + ' ' + (c.city || '')
+      + (c.type === 'image' ? ' <span class="badge">広告なし</span>' : '') + '</div>'
+      + '配信元: ' + (c.provider || '公開ライブカメラ') + ' ／ <a href="' + c.source + '" target="_blank" rel="noopener">公式／配信ページを開く</a>';
     if (c.type === 'youtube') {
-      var wrap = popupEl.querySelector('.video-wrap');
-      if (wrap) {
-        L.DomEvent.disableClickPropagation(wrap);
-        wrap.style.cursor = 'pointer';
-        wrap.addEventListener('click', function (ev) {
-          if (ev) { ev.preventDefault(); ev.stopPropagation(); }
-          wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + c.name + '"></iframe>';
-        });
-      }
-    }
-    if (c.type === 'image') {
-      var img = popupEl.querySelector('img[data-img]');
-      var clock = popupEl.querySelector('[data-clock]');
+      vMedia.innerHTML = '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
+        + '<button class="play-btn" type="button">▶ ライブを見る</button></div>';
+      foot += '<div class="meta">開いただけでは広告は出ません。再生は任意です（YouTube配信のため、再生開始時に広告が入る場合があります）</div>';
+      var wrap = vMedia.querySelector('.video-wrap');
+      L.DomEvent.disableClickPropagation(wrap);
+      wrap.style.cursor = 'pointer';
+      wrap.addEventListener('click', function (ev) {
+        if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+        wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + c.name + '"></iframe>';
+      });
+    } else if (c.type === 'image') {
+      vMedia.innerHTML = '<img class="still" data-img alt="' + c.name + '">';
+      foot += '<div class="meta">静止画（60秒ごとに自動更新） <span data-clock></span></div>';
+      vFoot.innerHTML = foot;
+      var img = vMedia.querySelector('img[data-img]');
+      var clock = vFoot.querySelector('[data-clock]');
       var load = function () {
-        if (img) img.src = c.image + (c.image.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+        img.src = c.image + (c.image.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
         if (clock) clock.textContent = '（' + new Date().toLocaleTimeString('ja-JP') + ' 更新）';
       };
       load();
       refreshTimer = setInterval(load, 60000);
+      viewerEl.classList.add('open');
+      return;
     }
+    vFoot.innerHTML = foot;
+    viewerEl.classList.add('open');
   }
 
   function render() {
@@ -126,15 +144,12 @@
     var n = 0;
     (window.CAMERAS || []).forEach(function (c) {
       if (activeCat !== 'すべて' && c.category !== activeCat) return;
-      if (adFreeOnly && c.type !== 'image') return;
       if (query) {
         var hay = (c.name + ' ' + c.pref + ' ' + (c.city || '') + ' ' + c.category);
         if (hay.indexOf(query) < 0) return;
       }
-      var m = L.marker([c.lat, c.lon]).bindPopup(popupHtml(c), { maxWidth: 600 });
-      m._cam = c;
-      m.on('popupopen', function (e) { armPopupMedia(e.popup.getElement(), c); });
-      m.on('popupclose', function () { if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; } });
+      var m = L.marker([c.lat, c.lon]);
+      m.on('click', function () { openViewer(c); });
       markers.push(m);
       cluster.addLayer(m);
       n++;
@@ -153,13 +168,6 @@
       render();
     });
     chipsEl.appendChild(b);
-  });
-
-  var adfreeEl = document.getElementById('adfree');
-  adfreeEl.addEventListener('click', function () {
-    adFreeOnly = !adFreeOnly;
-    adfreeEl.classList.toggle('active', adFreeOnly);
-    render();
   });
 
   var searchEl = document.getElementById('search');

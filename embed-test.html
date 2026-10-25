@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><title>embed sweep</title></head>
+<body><h1>embed sweep</h1><div id="status">starting...</div><pre id="results"></pre><div id="players"></div>
+<script>
+var VIDEOS = [["6r2nBMl-Kig", "知床・知床自然センター（ForestNotes）"], ["lqMJiYIPUcg", "屈斜路湖・ハイランド小清水725"], ["kfIQBC0hrII", "札幌・大通（創世スクエア）"], ["wRYonRnKsKw", "札幌 すすきの交差点"], ["ACIoHP6DW-0", "釧路市街（サンエス本社屋上）"], ["QV7ULZ4tbfM", "釧路・幣舞橋"], ["fd-61wNrxIo", "釧路フィッシャーマンズワーフMOO・太平洋"], ["F5aeMEfP0PY", "ニセコアンヌプリ国際スキー場"], ["3SKn4LgGJk8", "新千歳空港 滑走路（STV）"], ["uvNVpMKG8rw", "新千歳空港 ターミナル（STV）"], ["s--MDmshT3I", "函館山"], ["NqMCWu_4QLY", "角館・武家屋敷通り"], ["eLEU-R_XN1k", "仙台市 青葉区八幡"], ["Rs4CcR79sWA", "蔵王ロープウェイ（蔵王温泉）"], ["IQms8zArI7w", "佐渡・両津港（TeNY 5地点ループ）"], ["0Q2YZBnp7vk", "丸沼高原・日光白根山"], ["9ej1bDX8Kd8", "白馬八方尾根スキー場 兎平ゲレンデ"], ["hMY3VnL4Pyk", "白馬八方尾根スキー場 ゴンドラ乗り場"], ["B_Sc1v1qR-g", "草津温泉 湯畑"], ["QibXDVL7Lu8", "金沢駅東口"], ["Iv2VUE_UhRQ", "上高地 河童橋"], ["w1x2kIMp5OQ", "松本城（黒門から天守）"], ["qGbyL_bEKt0", "諏訪湖（SBC）"], ["OuCbntsMsWY", "成田国際空港 A滑走路"], ["XNOSZ4m8Ofc", "保護猫カフェ（東京キャットガーディアン）"], ["NsFHt76uwh8", "浅草寺 宝蔵門"], ["tz3LqWOMMOM", "秋葉原・中央通り交差点"], ["gFRtAAmiFbE", "新宿・歌舞伎町"], ["d1JuNg7knNo", "渋谷センター街 メインアーチ前"], ["dfVK7ld38Ys", "渋谷スクランブル交差点"], ["kshFiq4Y808", "東京タワー"], ["eXp3yZMylgI", "JR中央本線 熊野権現踏切"], ["hVdb6BbxEdc", "天橋立（傘松公園）"], ["2PIdi3Xa7TY", "羽田空港 第2ターミナル"], ["u7Zib_9HbUU", "鳥取砂丘（ワイドカメラ）"], ["oe7SMLOEQk0", "富士山・河口湖（湖のホテル）"], ["PLVCYhK0Wzc", "新倉山浅間公園・忠霊塔（富士山）"], ["QsdJxYmXvsQ", "横浜 汽車道・みなとみらい"], ["Gn2CJjzY068", "富士山（山中湖・ホテルマウント富士から）"], ["LQ2h_Uhmezg", "出雲大社前駅・神門通り"], ["W0rAn0GJaH8", "美山かやぶきの里"], ["tuNC0ot0j9I", "葉山 富士山・江の島"], ["tkGIel4YsIU", "箱根湯本駅前"], ["X304dz1zrfU", "名古屋駅"], ["eJAqPCdS1cY", "貴船神社"], ["EGbjDf5nVGQ", "熱海駅前広場"], ["M7panuXw7Qg", "京都駅"], ["xV1-oWEBZBk", "名鉄常滑線・大野町駅"], ["JnVbhapQxz8", "備中松山城 雲海展望台"], ["1DZNO-GQlHI", "大阪国際空港（伊丹空港）"], ["aS6uGkmScig", "保護ねこの家（大阪）"], ["60yXwZ8lJE0", "神戸ハーバーランド"], ["i2PpmC1IeKk", "大阪 道頓堀（戎橋）"], ["1V-rE4Z1ZZQ", "神戸空港（読売テレビ）"], ["wVYiVODQAkg", "明石海峡大橋（淡路SAから）"], ["YonXVFE9C3g", "鳥羽水族館・ラッコ水槽"], ["1dY5_2BScEE", "関西国際空港 第1ターミナル"], ["YnCXegVqpKA", "広島駅（RCC）"], ["-QSsYYjJbnI", "瀬戸大橋（与島から）"], ["lsxYH2XQQCg", "淡路島モンキーセンター"], ["s2CxZ7N25i0", "宮島・厳島神社大鳥居"], ["tHwWcSdBjjY", "錦帯橋"], ["cWpSuoJA90E", "三宅島・伊ヶ谷漁港"], ["z6tIfP0qS94", "関門橋・下関（tys）"], ["BY3-_S-OCzw", "道後温泉本館"], ["3JbsYB5OTrA", "福岡 天神一丁目交差点"], ["cTD7nITGhE0", "福岡空港"], ["CzgSFUAbE9s", "福岡空港（TNC・山口宇部空港と切替）"], ["-DDn7lAxR-8", "阿蘇中岳・草千里"], ["pmdZ-D1XOJA", "軍艦島（端島）"], ["Wf0ujF_U9Q4", "桜島（鹿児島市）"], ["Ad6A1dzNftI", "小笠原・父島 二見港"], ["RYTG2_d5-1M", "沖縄海洋博公園・遠見台"], ["ZBBezhwzCzY", "那覇 国際通り"], ["rjKspIZjdXU", "那覇空港"], ["4v5e4eKIT_E", "宮古島・佐和田の浜と下地島17END"], ["hm6_9jXxR5s", "石垣島 離島ターミナル"]];
+var results = {};
+var players = [];
+function onYouTubeIframeAPIReady() {
+  VIDEOS.forEach(function (v, i) {
+    var div = document.createElement('div');
+    div.id = 'p' + i;
+    document.getElementById('players').appendChild(div);
+    var pl = new YT.Player('p' + i, {
+      width: 320, height: 180, videoId: v[0],
+      playerVars: { playsinline: 1 },
+      events: {
+        onReady: function (e) {
+          results[v[0]] = results[v[0]] || { name: v[1], state: 'ready' };
+          e.target.mute();
+          e.target.playVideo();
+        },
+        onStateChange: function (e) {
+          if (e.data === YT.PlayerState.PLAYING) results[v[0]] = { name: v[1], state: 'PLAYING' };
+        },
+        onError: function (e) {
+          results[v[0]] = { name: v[1], state: 'ERROR ' + e.data };
+        }
+      }
+    });
+    players.push(pl);
+  });
+  setTimeout(report, 45000);
+}
+function report() {
+  VIDEOS.forEach(function (v) {
+    if (!results[v[0]]) results[v[0]] = { name: v[1], state: 'NO RESPONSE' };
+    else if (results[v[0]].state === 'ready') results[v[0]].state = 'READY-NOT-PLAYING';
+  });
+  var lines = VIDEOS.map(function (v) { return results[v[0]].state + ' | ' + v[0] + ' | ' + results[v[0]].name; });
+  document.getElementById('results').textContent = lines.join('\n');
+  var ok = lines.filter(function (l) { return l.indexOf('PLAYING') === 0; }).length;
+  document.getElementById('status').textContent = 'DONE: ' + ok + '/' + VIDEOS.length + ' playing';
+  document.title = 'DONE embed sweep';
+}
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+</script></body></html>
