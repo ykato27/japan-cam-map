@@ -1,5 +1,65 @@
-// 検証済みカメラデータ（YouTube: oEmbed確認 / 河川: 実画像取得確認 2026-10-25）
+// 検証済みカメラデータ（YouTube: oEmbed確認 / 静止画: 実画像取得確認 2026-10-25）
 window.CAMERAS = [
+ {
+  "category": "観光地",
+  "city": "稚内市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/soyamisaki_lt.jpg",
+  "lat": 45.523,
+  "lon": 141.936,
+  "name": "宗谷岬・日本最北端の地碑",
+  "pref": "北海道",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/livecamera.html",
+  "type": "image"
+ },
+ {
+  "category": "山・自然",
+  "city": "斜里町",
+  "lat": 44.092,
+  "lon": 145.087,
+  "name": "知床・知床自然センター（ForestNotes）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=6r2nBMl-Kig",
+  "type": "youtube",
+  "videoId": "6r2nBMl-Kig",
+  "provider": "Forest Notes"
+ },
+ {
+  "category": "山・自然",
+  "city": "小清水町",
+  "lat": 43.578,
+  "lon": 144.359,
+  "name": "屈斜路湖・ハイランド小清水725",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=lqMJiYIPUcg",
+  "type": "youtube",
+  "videoId": "lqMJiYIPUcg",
+  "provider": "小清水町役場ライブカメラ"
+ },
+ {
+  "category": "山・自然",
+  "city": "弟子屈町",
+  "image": "https://mashuko-iozan.jp/cam/mashuko-cam-01.jpg",
+  "lat": 43.573,
+  "lon": 144.566,
+  "name": "摩周湖 カムイテラス",
+  "pref": "北海道",
+  "provider": "摩周湖カムイテラス（弟子屈町振興公社）",
+  "source": "https://mashuko-iozan.jp/",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
+  "city": "根室市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/nosappumisaki_lt.jpg",
+  "lat": 43.385,
+  "lon": 145.817,
+  "name": "納沙布岬灯台",
+  "pref": "北海道",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/01kanku/nemuro/nosappumisaki_lt/livecamera/index.html",
+  "type": "image"
+ },
  {
   "category": "河川",
   "city": "岩見沢市栗沢町北斗",
@@ -37,6 +97,42 @@ window.CAMERAS = [
   "provider": "SODANEチャンネル"
  },
  {
+  "category": "都市",
+  "city": "釧路市",
+  "lat": 43.007,
+  "lon": 144.388,
+  "name": "釧路市街（サンエス本社屋上）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=ACIoHP6DW-0",
+  "type": "youtube",
+  "videoId": "ACIoHP6DW-0",
+  "provider": "サンエス電気通信株式会社"
+ },
+ {
+  "category": "港",
+  "city": "釧路市",
+  "lat": 43.005,
+  "lon": 144.384,
+  "name": "釧路・幣舞橋",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=QV7ULZ4tbfM",
+  "type": "youtube",
+  "videoId": "QV7ULZ4tbfM",
+  "provider": "サンエス電気通信株式会社"
+ },
+ {
+  "category": "港",
+  "city": "釧路市",
+  "lat": 43.004,
+  "lon": 144.383,
+  "name": "釧路フィッシャーマンズワーフMOO・太平洋",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=fd-61wNrxIo",
+  "type": "youtube",
+  "videoId": "fd-61wNrxIo",
+  "provider": "サンエス電気通信株式会社"
+ },
+ {
   "name": "ニセコアンヌプリ国際スキー場",
   "pref": "北海道",
   "city": "ニセコ町",
@@ -47,6 +143,42 @@ window.CAMERAS = [
   "videoId": "F5aeMEfP0PY",
   "source": "https://www.youtube.com/watch?v=F5aeMEfP0PY",
   "provider": "ニセコアンヌプリ国際スキー場"
+ },
+ {
+  "category": "空港",
+  "city": "千歳市",
+  "lat": 42.78,
+  "lon": 141.7,
+  "name": "新千歳空港 滑走路（STV）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=3SKn4LgGJk8",
+  "type": "youtube",
+  "videoId": "3SKn4LgGJk8",
+  "provider": "STVニュース北海道"
+ },
+ {
+  "category": "空港",
+  "city": "千歳市",
+  "lat": 42.775,
+  "lon": 141.692,
+  "name": "新千歳空港 ターミナル（STV）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=uvNVpMKG8rw",
+  "type": "youtube",
+  "videoId": "uvNVpMKG8rw",
+  "provider": "STV札幌テレビ放送 公式"
+ },
+ {
+  "category": "観光地",
+  "city": "えりも町",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/erimomisaki_lt.jpg",
+  "lat": 41.924,
+  "lon": 143.148,
+  "name": "襟裳岬灯台",
+  "pref": "北海道",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/01kanku/muroran/erimomisaki_lt/livecamera/index.html",
+  "type": "image"
  },
  {
   "name": "函館山",
@@ -97,6 +229,18 @@ window.CAMERAS = [
   "type": "image"
  },
  {
+  "category": "観光地",
+  "city": "仙北市",
+  "lat": 39.599,
+  "lon": 140.562,
+  "name": "角館・武家屋敷通り",
+  "pref": "秋田県",
+  "source": "https://www.youtube.com/watch?v=NqMCWu_4QLY",
+  "type": "youtube",
+  "videoId": "NqMCWu_4QLY",
+  "provider": "秋田県仙北市"
+ },
+ {
   "category": "河川",
   "city": "栗原市築館",
   "image": "https://cam.river.go.jp/cam/now/101025053.jpg",
@@ -143,6 +287,18 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "Rs4CcR79sWA",
   "provider": "蔵王索道協会"
+ },
+ {
+  "category": "港",
+  "city": "佐渡市",
+  "lat": 38.082,
+  "lon": 138.437,
+  "name": "佐渡・両津港（TeNY 5地点ループ）",
+  "pref": "新潟県",
+  "source": "https://www.youtube.com/watch?v=IQms8zArI7w",
+  "type": "youtube",
+  "videoId": "IQms8zArI7w",
+  "provider": "TeNY新潟一番ニュース"
  },
  {
   "category": "河川",
@@ -253,6 +409,18 @@ window.CAMERAS = [
   "provider": "国宝松本城"
  },
  {
+  "category": "山・自然",
+  "city": "諏訪市",
+  "lat": 36.048,
+  "lon": 138.114,
+  "name": "諏訪湖（SBC）",
+  "pref": "長野県",
+  "source": "https://www.youtube.com/watch?v=qGbyL_bEKt0",
+  "type": "youtube",
+  "videoId": "qGbyL_bEKt0",
+  "provider": "SBC信越放送"
+ },
+ {
   "category": "河川",
   "city": "吉川市川藤",
   "image": "https://cam.river.go.jp/cam/now/cctv_110001_31C02380.jpg",
@@ -277,6 +445,18 @@ window.CAMERAS = [
   "provider": "朝日新聞LIVE"
  },
  {
+  "category": "動物",
+  "city": "東京都",
+  "lat": 35.731,
+  "lon": 139.728,
+  "name": "保護猫カフェ（東京キャットガーディアン）",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=XNOSZ4m8Ofc",
+  "type": "youtube",
+  "videoId": "XNOSZ4m8Ofc",
+  "provider": "ShippoTV（東京キャットガーディアン）"
+ },
+ {
   "name": "浅草寺 宝蔵門",
   "pref": "東京都",
   "city": "台東区",
@@ -287,6 +467,30 @@ window.CAMERAS = [
   "videoId": "NsFHt76uwh8",
   "source": "https://www.youtube.com/watch?v=NsFHt76uwh8",
   "provider": "浅草中屋チャンネル -ASAKUSA NAKAYA CHANNEL-"
+ },
+ {
+  "category": "観光地",
+  "city": "銚子市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/inubosaki_lt.jpg",
+  "lat": 35.708,
+  "lon": 140.869,
+  "name": "犬吠埼灯台",
+  "pref": "千葉県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/livecamera.html",
+  "type": "image"
+ },
+ {
+  "category": "都市",
+  "city": "千代田区",
+  "lat": 35.698,
+  "lon": 139.773,
+  "name": "秋葉原・中央通り交差点",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=tz3LqWOMMOM",
+  "type": "youtube",
+  "videoId": "tz3LqWOMMOM",
+  "provider": "愛三電機"
  },
  {
   "category": "都市",
@@ -385,6 +589,18 @@ window.CAMERAS = [
   "provider": "天橋立傘松公園ライブカメラ"
  },
  {
+  "category": "観光地",
+  "city": "松江市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/mihonoseki_lt.jpg",
+  "lat": 35.562,
+  "lon": 133.221,
+  "name": "美保関灯台",
+  "pref": "島根県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/livecamera.html",
+  "type": "image"
+ },
+ {
   "name": "羽田空港 第2ターミナル",
   "pref": "東京都",
   "city": "大田区",
@@ -419,6 +635,18 @@ window.CAMERAS = [
   "videoId": "oe7SMLOEQk0",
   "source": "https://www.youtube.com/watch?v=oe7SMLOEQk0",
   "provider": "official MIZNO HOTEL"
+ },
+ {
+  "category": "山・自然",
+  "city": "富士吉田市",
+  "lat": 35.501,
+  "lon": 138.801,
+  "name": "新倉山浅間公園・忠霊塔（富士山）",
+  "pref": "山梨県",
+  "source": "https://www.youtube.com/watch?v=PLVCYhK0Wzc",
+  "type": "youtube",
+  "videoId": "PLVCYhK0Wzc",
+  "provider": "ふじよしだ観光・イベント広報"
  },
  {
   "category": "河川",
@@ -493,6 +721,18 @@ window.CAMERAS = [
   "provider": "森の京都"
  },
  {
+  "category": "観光地",
+  "city": "朝来市",
+  "image": "http://anet-alert.jp/tenku/index.files/image001.jpg",
+  "lat": 35.3,
+  "lon": 134.829,
+  "name": "竹田城跡（雲海カメラ）",
+  "pref": "兵庫県",
+  "provider": "朝来市",
+  "source": "https://www.city.asago.hyogo.jp/site/takeda/3085.html",
+  "type": "image"
+ },
+ {
   "name": "葉山 富士山・江の島",
   "pref": "神奈川県",
   "city": "葉山町",
@@ -530,6 +770,18 @@ window.CAMERAS = [
  },
  {
   "category": "観光地",
+  "city": "三浦市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/tsurugisaki_lt.jpg",
+  "lat": 35.14,
+  "lon": 139.675,
+  "name": "剱埼灯台",
+  "pref": "神奈川県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/03kanku/yokosuka/tsurugisaki_lt/livecamera/index.html",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
   "city": "京都市",
   "lat": 35.121,
   "lon": 135.763,
@@ -539,6 +791,18 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "eJAqPCdS1cY",
   "provider": "京都観光混雑状況Live"
+ },
+ {
+  "category": "観光地",
+  "city": "熱海市",
+  "lat": 35.104,
+  "lon": 139.078,
+  "name": "熱海駅前広場",
+  "pref": "静岡県",
+  "source": "https://www.youtube.com/watch?v=EGbjDf5nVGQ",
+  "type": "youtube",
+  "videoId": "EGbjDf5nVGQ",
+  "provider": "熱海市道路状況公式チャンネル"
  },
  {
   "name": "京都駅",
@@ -589,6 +853,30 @@ window.CAMERAS = [
   "provider": "備中松山城雲海展望台ライブ配信"
  },
  {
+  "category": "空港",
+  "city": "豊中市",
+  "lat": 34.785,
+  "lon": 135.438,
+  "name": "大阪国際空港（伊丹空港）",
+  "pref": "大阪府",
+  "source": "https://www.youtube.com/watch?v=1DZNO-GQlHI",
+  "type": "youtube",
+  "videoId": "1DZNO-GQlHI",
+  "provider": "大阪飛行機ライブカメラ"
+ },
+ {
+  "category": "動物",
+  "city": "大阪市",
+  "lat": 34.686,
+  "lon": 135.52,
+  "name": "保護ねこの家（大阪）",
+  "pref": "大阪府",
+  "source": "https://www.youtube.com/watch?v=aS6uGkmScig",
+  "type": "youtube",
+  "videoId": "aS6uGkmScig",
+  "provider": "保護ねこの家"
+ },
+ {
   "name": "神戸ハーバーランド",
   "pref": "兵庫県",
   "city": "神戸市中央区",
@@ -613,6 +901,18 @@ window.CAMERAS = [
   "provider": "ラジカルビデオジョッキー RVJJP"
  },
  {
+  "category": "空港",
+  "city": "神戸市中央区",
+  "lat": 34.633,
+  "lon": 135.234,
+  "name": "神戸空港（読売テレビ）",
+  "pref": "兵庫県",
+  "source": "https://www.youtube.com/watch?v=1V-rE4Z1ZZQ",
+  "type": "youtube",
+  "videoId": "1V-rE4Z1ZZQ",
+  "provider": "読売テレビニュース"
+ },
+ {
   "category": "その他",
   "city": "淡路市",
   "lat": 34.613,
@@ -623,6 +923,42 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "wVYiVODQAkg",
   "provider": "JBハイウェイサービス"
+ },
+ {
+  "category": "観光地",
+  "city": "南房総市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/nojimasaki_lt.jpg",
+  "lat": 34.602,
+  "lon": 139.89,
+  "name": "野島崎灯台",
+  "pref": "千葉県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/livecamera.html",
+  "type": "image"
+ },
+ {
+  "category": "港",
+  "city": "鳥羽市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/toba_cgo.jpg",
+  "lat": 34.487,
+  "lon": 136.842,
+  "name": "鳥羽港（佐田浜）",
+  "pref": "三重県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/04kanku/toba/toba_cgo/livecamera/index.html",
+  "type": "image"
+ },
+ {
+  "category": "動物",
+  "city": "鳥羽市",
+  "lat": 34.484,
+  "lon": 136.844,
+  "name": "鳥羽水族館・ラッコ水槽",
+  "pref": "三重県",
+  "source": "https://www.youtube.com/watch?v=YonXVFE9C3g",
+  "type": "youtube",
+  "videoId": "YonXVFE9C3g",
+  "provider": "鳥羽水族館"
  },
  {
   "category": "空港",
@@ -647,6 +983,18 @@ window.CAMERAS = [
   "provider": "大阪府河川室",
   "source": "https://www.river.go.jp/",
   "type": "image"
+ },
+ {
+  "category": "都市",
+  "city": "広島市南区",
+  "lat": 34.397,
+  "lon": 132.475,
+  "name": "広島駅（RCC）",
+  "pref": "広島県",
+  "source": "https://www.youtube.com/watch?v=YnCXegVqpKA",
+  "type": "youtube",
+  "videoId": "YnCXegVqpKA",
+  "provider": "RCC NEWS DIG"
  },
  {
   "category": "その他",
@@ -698,6 +1046,18 @@ window.CAMERAS = [
  },
  {
   "category": "観光地",
+  "city": "志摩市",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/daiosaki_lt.jpg",
+  "lat": 34.276,
+  "lon": 136.913,
+  "name": "大王埼灯台",
+  "pref": "三重県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/04kanku/toba/daiosaki_lt/livecamera/index.html",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
   "city": "岩国市",
   "lat": 34.167,
   "lon": 132.178,
@@ -707,6 +1067,30 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "tHwWcSdBjjY",
   "provider": "錦帯橋課公式チャンネル"
+ },
+ {
+  "category": "港",
+  "city": "三宅村",
+  "lat": 34.072,
+  "lon": 139.512,
+  "name": "三宅島・伊ヶ谷漁港",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=cWpSuoJA90E",
+  "type": "youtube",
+  "videoId": "cWpSuoJA90E",
+  "provider": "東京都伊豆・小笠原諸島港湾ライブカメラ"
+ },
+ {
+  "category": "その他",
+  "city": "下関市",
+  "lat": 33.962,
+  "lon": 130.967,
+  "name": "関門橋・下関（tys）",
+  "pref": "山口県",
+  "source": "https://www.youtube.com/watch?v=z6tIfP0qS94",
+  "type": "youtube",
+  "videoId": "z6tIfP0qS94",
+  "provider": "tysテレビ山口"
  },
  {
   "category": "河川",
@@ -745,6 +1129,30 @@ window.CAMERAS = [
   "provider": "LOG FUKUOKA"
  },
  {
+  "category": "空港",
+  "city": "福岡市博多区",
+  "lat": 33.586,
+  "lon": 130.451,
+  "name": "福岡空港",
+  "pref": "福岡県",
+  "source": "https://www.youtube.com/watch?v=cTD7nITGhE0",
+  "type": "youtube",
+  "videoId": "cTD7nITGhE0",
+  "provider": "福岡空港ライブカメラ"
+ },
+ {
+  "category": "空港",
+  "city": "福岡市博多区",
+  "lat": 33.586,
+  "lon": 130.451,
+  "name": "福岡空港（TNC・山口宇部空港と切替）",
+  "pref": "福岡県",
+  "source": "https://www.youtube.com/watch?v=CzgSFUAbE9s",
+  "type": "youtube",
+  "videoId": "CzgSFUAbE9s",
+  "provider": "福岡TNC ニュース"
+ },
+ {
   "category": "河川",
   "city": "いの町波川",
   "image": "https://cam.river.go.jp/cam/now/122559020.jpg",
@@ -754,6 +1162,18 @@ window.CAMERAS = [
   "pref": "高知県",
   "provider": "国土交通省 川の防災情報",
   "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
+  "city": "串本町",
+  "image": "https://www6.kaiho.mlit.go.jp/gazou/shionomisaki_lt.jpg",
+  "lat": 33.426,
+  "lon": 135.758,
+  "name": "潮岬灯台",
+  "pref": "和歌山県",
+  "provider": "海上保安庁",
+  "source": "https://www6.kaiho.mlit.go.jp/livecamera.html",
   "type": "image"
  },
  {
@@ -817,6 +1237,18 @@ window.CAMERAS = [
   "provider": "長崎ケーブルメディア[公式]"
  },
  {
+  "category": "空港",
+  "city": "霧島市",
+  "image": "https://www.mbc.co.jp/web-cam/img/cam1-kuu.jpg",
+  "lat": 31.803,
+  "lon": 130.719,
+  "name": "鹿児島空港",
+  "pref": "鹿児島県",
+  "provider": "MBC南日本放送",
+  "source": "https://www.mbc.co.jp/web-cam/",
+  "type": "image"
+ },
+ {
   "name": "桜島（鹿児島市）",
   "pref": "鹿児島県",
   "city": "鹿児島市",
@@ -827,6 +1259,30 @@ window.CAMERAS = [
   "videoId": "Wf0ujF_U9Q4",
   "source": "https://www.youtube.com/watch?v=Wf0ujF_U9Q4",
   "provider": "KYT 情報カメラ(鹿児島市) -鹿児島読売テレビ"
+ },
+ {
+  "category": "港",
+  "city": "十島村（悪石島）",
+  "image": "https://www.mbc.co.jp/web-cam/img/cam1-tkr_aku.jpg",
+  "lat": 29.462,
+  "lon": 129.602,
+  "name": "悪石島・安ら浜港",
+  "pref": "鹿児島県",
+  "provider": "MBC南日本放送",
+  "source": "https://www.mbc.co.jp/web-cam/",
+  "type": "image"
+ },
+ {
+  "category": "港",
+  "city": "十島村（小宝島）",
+  "image": "https://www.mbc.co.jp/web-cam/img/cam1-tkr_kot.jpg",
+  "lat": 29.331,
+  "lon": 129.327,
+  "name": "小宝島港",
+  "pref": "鹿児島県",
+  "provider": "MBC南日本放送",
+  "source": "https://www.mbc.co.jp/web-cam/",
+  "type": "image"
  },
  {
   "category": "港",
@@ -841,6 +1297,18 @@ window.CAMERAS = [
   "provider": "小笠原村役場"
  },
  {
+  "category": "観光地",
+  "city": "本部町",
+  "lat": 26.694,
+  "lon": 127.878,
+  "name": "沖縄海洋博公園・遠見台",
+  "pref": "沖縄県",
+  "source": "https://www.youtube.com/watch?v=RYTG2_d5-1M",
+  "type": "youtube",
+  "videoId": "RYTG2_d5-1M",
+  "provider": "海洋博公園"
+ },
+ {
   "name": "那覇 国際通り",
   "pref": "沖縄県",
   "city": "那覇市",
@@ -851,6 +1319,18 @@ window.CAMERAS = [
   "videoId": "ZBBezhwzCzY",
   "source": "https://www.youtube.com/watch?v=ZBBezhwzCzY",
   "provider": "バクノビジョン"
+ },
+ {
+  "category": "空港",
+  "city": "那覇市",
+  "lat": 26.196,
+  "lon": 127.646,
+  "name": "那覇空港",
+  "pref": "沖縄県",
+  "source": "https://www.youtube.com/watch?v=rjKspIZjdXU",
+  "type": "youtube",
+  "videoId": "rjKspIZjdXU",
+  "provider": "日テレNEWS"
  },
  {
   "category": "観光地",
