@@ -1,4 +1,4 @@
-// ライブカメラデータ: 日本70件 + 海外45件 (2026-10-25 世界展開+代替解決)
+// ライブカメラデータ: 日本84件 + 海外45件 (2026-10-25 動物・自然を大幅追加)
 window.CAMERAS = [
  {
   "category": "山・自然",
@@ -1395,5 +1395,182 @@ window.CAMERAS = [
   "source": "https://www.youtube.com/watch?v=ME0dPuBtzug",
   "type": "youtube",
   "videoId": "ME0dPuBtzug"
+ },
+ {
+  "category": "動物",
+  "channel": "五月山動物園 ウォンバットてれび",
+  "city": "池田市",
+  "lat": 34.831,
+  "lon": 135.425,
+  "name": "五月山動物園・ウォンバット",
+  "pref": "大阪府",
+  "source": "https://www.youtube.com/watch?v=m0zx7vPJtC0",
+  "type": "youtube",
+  "videoId": "m0zx7vPJtC0"
+ },
+ {
+  "category": "動物",
+  "channel": "熊本市動植物園 ライブカメラチャンネル",
+  "city": "熊本市東区",
+  "lat": 32.775,
+  "lon": 130.75,
+  "name": "熊本市動植物園・マサイキリン",
+  "pref": "熊本県",
+  "source": "https://www.youtube.com/watch?v=EeU_fG7pmX4",
+  "type": "youtube",
+  "videoId": "EeU_fG7pmX4"
+ },
+ {
+  "category": "動物",
+  "channel": "久留米市鳥類センター",
+  "city": "久留米市",
+  "lat": 33.322,
+  "lon": 130.524,
+  "name": "久留米市鳥類センター・クジャク",
+  "pref": "福岡県",
+  "source": "https://www.youtube.com/watch?v=j-ieZ34xfC4",
+  "type": "youtube",
+  "videoId": "j-ieZ34xfC4"
+ },
+ {
+  "category": "動物",
+  "channel": "KTV12net",
+  "city": "河津町",
+  "lat": 34.731,
+  "lon": 138.995,
+  "name": "体感型動物園iZoo・ゾウガメ牧場",
+  "pref": "静岡県",
+  "source": "https://www.youtube.com/watch?v=xbtcl8WuEZ4",
+  "type": "youtube",
+  "videoId": "xbtcl8WuEZ4"
+ },
+ {
+  "category": "動物",
+  "channel": "湯島猫島ありのまま",
+  "city": "上天草市",
+  "lat": 32.601,
+  "lon": 130.337,
+  "name": "湯島「猫島」定点カメラ",
+  "pref": "熊本県",
+  "source": "https://www.youtube.com/watch?v=g-tfZ65pdn4",
+  "type": "youtube",
+  "videoId": "g-tfZ65pdn4"
+ },
+ {
+  "category": "動物",
+  "channel": "Jigokudani Yaenkoen地獄谷野猿公苑（Snow Monkey）",
+  "city": "山ノ内町",
+  "lat": 36.733,
+  "lon": 138.446,
+  "name": "地獄谷野猿公苑・スノーモンキー（温泉ザル）",
+  "notes": "公式チャンネルのライブ。ライブサムネイルは公式ロゴのカード型（実フレームではない）が、配信自体は配信中を確認。猿の温泉入浴は厳冬期（1〜2月）中心で、暖かい時期は苑内で過ごす様子が中心",
+  "pref": "長野県",
+  "source": "https://www.youtube.com/watch?v=cIuJ4xSUQBM",
+  "type": "youtube",
+  "videoId": "cIuJ4xSUQBM"
+ },
+ {
+  "category": "動物",
+  "channel": "紋別アザラシシーパラダイス",
+  "city": "紋別市",
+  "lat": 44.354,
+  "lon": 143.36,
+  "name": "オホーツクとっかりセンター・アザラシプール",
+  "notes": "アザラシプールの公式ライブ。サムネイルはタイトルカード型",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=ozcrgj_BgKE",
+  "type": "youtube",
+  "videoId": "ozcrgj_BgKE"
+ },
+ {
+  "category": "動物",
+  "channel": "Forest Notes 森の動画チャンネル",
+  "city": "斜里町",
+  "lat": 44.072,
+  "lon": 144.993,
+  "name": "知床・動物観察カメラ",
+  "notes": "知床の森の定点カメラ。エゾシカ・キツネ・野鳥などが訪れる。タイトルに「（07/17～）」とあり期間運用の可能性あり（検証時点では配信中・実フレーム確認）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=CcgT5MFiL6Q",
+  "type": "youtube",
+  "videoId": "CcgT5MFiL6Q"
+ },
+ {
+  "category": "動物",
+  "channel": "by 道の駅やんばるパイナップルの丘安波",
+  "city": "国頭村",
+  "lat": 26.746,
+  "lon": 128.267,
+  "name": "やんばるの森・水場カメラ（ヤンバルクイナ）",
+  "notes": "道の駅やんばるパイナップルの丘安波の水場メインカメラ。ヤンバルクイナをはじめ沖縄の生き物が水場に現れる。同チャンネルに複数カメラあり",
+  "pref": "沖縄県",
+  "source": "https://www.youtube.com/watch?v=mP_Nks3acIM",
+  "type": "youtube",
+  "videoId": "mP_Nks3acIM"
+ },
+ {
+  "category": "動物",
+  "channel": "1ちゃん!日本海テレビ",
+  "city": "米子市",
+  "lat": 35.457,
+  "lon": 133.285,
+  "name": "米子水鳥公園（中海の水鳥）",
+  "notes": "中海の水鳥を映す日本海テレビのライブ。コハクチョウ等の冬鳥が見頃は冬季。サムネイルは実景ベースのカード型",
+  "pref": "鳥取県",
+  "source": "https://www.youtube.com/watch?v=qN6Xwpi-lnA",
+  "type": "youtube",
+  "videoId": "qN6Xwpi-lnA"
+ },
+ {
+  "category": "動物",
+  "channel": "Live Zoo In あさひやま ",
+  "city": "旭川市",
+  "lat": 43.768,
+  "lon": 141.496,
+  "name": "旭山動物園・ペンギン放飼場",
+  "notes": "旭山動物園公認チャンネルの24/7ライブ。サムネイルはカード型",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=POYd3MeJ7UY",
+  "type": "youtube",
+  "videoId": "POYd3MeJ7UY"
+ },
+ {
+  "category": "動物",
+  "channel": "chi s",
+  "city": "軽井沢町",
+  "lat": 36.378,
+  "lon": 138.597,
+  "name": "軽井沢・小さな鳥とリスの餌台",
+  "notes": "個人配信の庭先餌台・水場カメラ。野鳥やリスが訪れる。実フレーム（当日タイムスタンプ付き）確認",
+  "pref": "長野県",
+  "source": "https://www.youtube.com/watch?v=HXp5x6llMo4",
+  "type": "youtube",
+  "videoId": "HXp5x6llMo4"
+ },
+ {
+  "category": "動物",
+  "channel": "動物支援コノドch",
+  "city": "新冠町",
+  "lat": 42.362,
+  "lon": 142.318,
+  "name": "新冠・馬の放牧地（コノド）",
+  "notes": "サラブレッドの里・新冠の放牧地を24時間365日ライブ中継するお天気カメラ。実フレーム確認",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=1NtYMzERRxs",
+  "type": "youtube",
+  "videoId": "1NtYMzERRxs"
+ },
+ {
+  "category": "動物",
+  "channel": "こっちーくん631",
+  "city": "豊岡市",
+  "lat": 35.544,
+  "lon": 134.82,
+  "name": "コウノトリの巣塔（豊岡）",
+  "notes": "豊岡のコウノトリの巣を映す個人配信の24時間ライブ（県立コウノトリの郷公園の公式配信ではない）。見どころは繁殖期（春〜初夏）の営巣・子育て。検証時点（10月）は巣のみで実フレーム確認",
+  "pref": "兵庫県",
+  "source": "https://www.youtube.com/watch?v=hH_5hImRDJA",
+  "type": "youtube",
+  "videoId": "hH_5hImRDJA"
  }
 ];
