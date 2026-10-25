@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><title>embed sweep A</title></head>
+<body><h1>embed sweep A-team</h1><div id="status">starting...</div><pre id="results"></pre><div id="players"></div>
+<script>
+var VIDEOS = [["4GyL-3_I9Kc", "アクアワールド茨城県大洗水族館・サメ水槽 [A]"], ["tHMEnSTnFd4", "福井駅付近（FBC情報カメラ） [A]"], ["kdTzzqRh4LQ", "大名町交差点・福井駅西口（FBC情報カメラ） [A]"]];
+var BATCH = 3, WAIT = 32000;
+var idx = 0, done = 0, playing = 0;
+var results = {};
+function flush() {
+  document.getElementById('results').textContent = VIDEOS.filter(function (v) { return results[v[0]]; })
+    .map(function (v) { return results[v[0]] + ' | ' + v[0] + ' | ' + v[1]; }).join('\n');
+}
+function nextBatch() {
+  if (idx >= VIDEOS.length) {
+    document.getElementById('status').textContent = 'DONE: ' + playing + '/' + VIDEOS.length + ' playing';
+    document.title = 'DONE embed sweep A';
+    return;
+  }
+  var slice = VIDEOS.slice(idx, idx + BATCH);
+  document.getElementById('status').textContent = 'batch ' + (idx / BATCH + 1) + ' / ' + Math.ceil(VIDEOS.length / BATCH);
+  var host = document.getElementById('players');
+  host.innerHTML = '';
+  var local = {}, pls = {};
+  slice.forEach(function (v, i) {
+    var div = document.createElement('div'); div.id = 'bp' + i; host.appendChild(div);
+    local[v[0]] = 'NO RESPONSE';
+    pls[v[0]] = new YT.Player('bp' + i, { width: 320, height: 180, videoId: v[0],
+      playerVars: { playsinline: 1 },
+      events: {
+        onReady: function (e) { if (local[v[0]] === 'NO RESPONSE') local[v[0]] = 'READY-NOT-PLAYING'; e.target.mute(); e.target.playVideo(); },
+        onStateChange: function (e) { if (e.data === YT.PlayerState.PLAYING) local[v[0]] = 'PLAYING'; },
+        onError: function (e) { local[v[0]] = 'ERROR ' + e.data; }
+      }});
+  });
+  setTimeout(function () {
+    slice.forEach(function (v) { if (local[v[0]] === 'READY-NOT-PLAYING' && pls[v[0]].playVideo) { try { pls[v[0]].playVideo(); } catch (e) {} } });
+  }, WAIT / 2);
+  setTimeout(function () {
+    slice.forEach(function (v) {
+      results[v[0]] = local[v[0]];
+      if (local[v[0]] === 'PLAYING') playing++;
+      done++;
+    });
+    flush();
+    idx += BATCH;
+    nextBatch();
+  }, WAIT);
+}
+function onYouTubeIframeAPIReady() { nextBatch(); }
+var tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+</script></body></html>
