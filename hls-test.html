@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<title>hls cred test</title></head>
+<body>
+<h1>hls cred test</h1>
+<div id="status">INIT</div>
+<pre id="out"></pre>
+<video id="v" muted autoplay playsinline controls width="640" height="360"></video>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+<script>
+  var out = document.getElementById('out');
+  var statusEl = document.getElementById('status');
+  function log(s) { out.textContent += s + '\n'; }
+  var video = document.getElementById('v');
+  var url = 'https://mediamtx-0.euw4.gcp.prod.explore.org:8888/955_muxed/index.m3u8';
+  if (window.Hls && Hls.isSupported()) {
+    var hls = new Hls({ debug: false, xhrSetup: function (xhr) { xhr.withCredentials = true; } });
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function () { log('MANIFEST_PARSED'); video.play().catch(function (e) { log('play err ' + e); }); });
+    hls.on(Hls.Events.LEVEL_LOADED, function (e, d) { log('LEVEL_LOADED frags=' + (d.details ? d.details.fragments.length : '?')); });
+    hls.on(Hls.Events.FRAG_LOADED, function () { log('FRAG_LOADED t=' + video.currentTime.toFixed(1)); });
+    hls.on(Hls.Events.ERROR, function (e, d) { log('ERROR type=' + d.type + ' details=' + d.details + ' fatal=' + d.fatal); });
+    setInterval(function () {
+      statusEl.textContent = 't=' + video.currentTime.toFixed(1) + ' readyState=' + video.readyState + ' networkState=' + video.networkState;
+      if (video.currentTime > 1) statusEl.textContent += ' PLAYING';
+    }, 2000);
+  } else {
+    log('hls.js not supported');
+  }
+</script>
+</body></html>
