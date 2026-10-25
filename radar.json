@@ -1,21 +1,21 @@
 {
- "updated": "2026-10-25T22:19:44+09:00",
+ "updated": "2026-10-26T07:43:43+09:00",
  "cams": {
   "jigokudani": {
    "name": "地獄谷野猿公苑",
    "videoId": null,
-   "state": "unknown",
+   "state": "absent",
    "since": null,
-   "lastChange": null,
-   "score": null
+   "lastChange": "2026-10-26T06:29:21+09:00",
+   "score": 0.68
   },
   "tembe": {
    "name": "テンベ象公園の水場",
    "videoId": "0P_LBKqVbfs",
-   "state": "unknown",
+   "state": "absent",
    "since": null,
-   "lastChange": null,
-   "score": null
+   "lastChange": "2026-10-26T06:29:22+09:00",
+   "score": 1.73
   },
   "namibia": {
    "name": "ナミビアの水場",
@@ -48,6 +48,14 @@
    "since": null,
    "lastChange": null,
    "score": null
+  },
+  "tau": {
+   "name": "タウ・ウォーターホール",
+   "videoId": "DsNtwGJXTTs",
+   "state": "absent",
+   "since": null,
+   "lastChange": "2026-10-26T06:29:22+09:00",
+   "score": 0.2
   }
  }
 }
