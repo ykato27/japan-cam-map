@@ -111,13 +111,13 @@
     if (c.type === 'youtube') {
       vMedia.innerHTML = '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
         + '<button class="play-btn" type="button">▶ ライブを見る</button></div>';
-      foot += '<div class="meta">開いただけでは広告は出ません。再生は任意です（YouTube配信のため、再生開始時に広告が入る場合があります）</div>';
+      foot += '<div class="meta">開いただけでは広告は出ません。再生はミュートで始まります（音はプレーヤーの音量ボタンで出せます）。YouTube配信のため、再生開始時に広告が入る場合があります</div>';
       var wrap = vMedia.querySelector('.video-wrap');
       L.DomEvent.disableClickPropagation(wrap);
       wrap.style.cursor = 'pointer';
       wrap.addEventListener('click', function (ev) {
         if (ev) { ev.preventDefault(); ev.stopPropagation(); }
-        wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + c.name + '"></iframe>';
+        wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + c.videoId + '?autoplay=1&mute=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + c.name + '"></iframe>';
       });
     } else if (c.type === 'image') {
       vMedia.innerHTML = '<img class="still" data-img alt="' + c.name + '">';
