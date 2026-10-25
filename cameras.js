@@ -1,4 +1,4 @@
-// 検証済みカメラデータ（YouTube: 実在＋ライブ確認 / 河川: 実画像取得確認 2026-10-25）
+// 検証済みカメラデータ（YouTube: oEmbed確認 / 河川: 実画像取得確認 2026-10-25）
 window.CAMERAS = [
  {
   "category": "河川",
@@ -11,6 +11,18 @@ window.CAMERAS = [
   "provider": "国土交通省 川の防災情報",
   "source": "https://www.river.go.jp/",
   "type": "image"
+ },
+ {
+  "category": "都市",
+  "city": "札幌市",
+  "lat": 43.062,
+  "lon": 141.355,
+  "name": "札幌・大通（創世スクエア）",
+  "pref": "北海道",
+  "source": "https://www.youtube.com/watch?v=kfIQBC0hrII",
+  "type": "youtube",
+  "videoId": "kfIQBC0hrII",
+  "provider": "SODANEチャンネル"
  },
  {
   "name": "札幌 すすきの交差点",
@@ -73,6 +85,42 @@ window.CAMERAS = [
   "type": "image"
  },
  {
+  "category": "河川",
+  "city": "盛岡市大沢川原",
+  "image": "https://cam.river.go.jp/cam/now/cctv_030007_21C04617.jpg",
+  "lat": 39.7,
+  "lon": 141.14,
+  "name": "北上川 開運橋",
+  "pref": "岩手県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "栗原市築館",
+  "image": "https://cam.river.go.jp/cam/now/101025053.jpg",
+  "lat": 38.73,
+  "lon": 141.02,
+  "name": "荒川 築館（玉沢橋）",
+  "pref": "宮城県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "大蔵村清水",
+  "image": "https://cam.river.go.jp/cam/now/121054217.jpg",
+  "lat": 38.59,
+  "lon": 140.23,
+  "name": "最上川 白須賀",
+  "pref": "山形県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
   "name": "仙台市 青葉区八幡",
   "pref": "宮城県",
   "city": "仙台市青葉区",
@@ -83,6 +131,42 @@ window.CAMERAS = [
   "videoId": "eLEU-R_XN1k",
   "source": "https://www.youtube.com/watch?v=eLEU-R_XN1k",
   "provider": "宮城県仙台市青葉区八幡ライブカメラ"
+ },
+ {
+  "category": "山・自然",
+  "city": "山形市",
+  "lat": 38.173,
+  "lon": 140.397,
+  "name": "蔵王ロープウェイ（蔵王温泉）",
+  "pref": "山形県",
+  "source": "https://www.youtube.com/watch?v=Rs4CcR79sWA",
+  "type": "youtube",
+  "videoId": "Rs4CcR79sWA",
+  "provider": "蔵王索道協会"
+ },
+ {
+  "category": "河川",
+  "city": "燕市大川津",
+  "image": "https://cam.river.go.jp/cam/now/121531091.jpg",
+  "lat": 37.63,
+  "lon": 138.9,
+  "name": "信濃川 中条新田",
+  "pref": "新潟県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "山・自然",
+  "city": "片品村",
+  "lat": 36.837,
+  "lon": 139.339,
+  "name": "丸沼高原・日光白根山",
+  "pref": "群馬県",
+  "source": "https://www.youtube.com/watch?v=0Q2YZBnp7vk",
+  "type": "youtube",
+  "videoId": "0Q2YZBnp7vk",
+  "provider": "MARUNUMA"
  },
  {
   "name": "白馬八方尾根スキー場 兎平ゲレンデ",
@@ -109,6 +193,18 @@ window.CAMERAS = [
   "provider": "HAPPO-ONE LIVE"
  },
  {
+  "category": "観光地",
+  "city": "草津町",
+  "lat": 36.623,
+  "lon": 138.597,
+  "name": "草津温泉 湯畑",
+  "pref": "群馬県",
+  "source": "https://www.youtube.com/watch?v=B_Sc1v1qR-g",
+  "type": "youtube",
+  "videoId": "B_Sc1v1qR-g",
+  "provider": "草津町"
+ },
+ {
   "name": "金沢駅東口",
   "pref": "石川県",
   "city": "金沢市",
@@ -119,6 +215,54 @@ window.CAMERAS = [
   "videoId": "QibXDVL7Lu8",
   "source": "https://www.youtube.com/watch?v=QibXDVL7Lu8",
   "provider": "Visit Kanazawa Official"
+ },
+ {
+  "category": "河川",
+  "city": "前橋市公田町",
+  "image": "https://cam.river.go.jp/cam/now/102561154.jpg",
+  "lat": 36.36,
+  "lon": 139.09,
+  "name": "利根川 昭和大橋",
+  "pref": "群馬県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "山・自然",
+  "city": "松本市",
+  "lat": 36.246,
+  "lon": 137.666,
+  "name": "上高地 河童橋",
+  "pref": "長野県",
+  "source": "https://www.youtube.com/watch?v=Iv2VUE_UhRQ",
+  "type": "youtube",
+  "videoId": "Iv2VUE_UhRQ",
+  "provider": "五千尺ホテル上高地"
+ },
+ {
+  "category": "観光地",
+  "city": "松本市",
+  "lat": 36.239,
+  "lon": 137.97,
+  "name": "松本城（黒門から天守）",
+  "pref": "長野県",
+  "source": "https://www.youtube.com/watch?v=w1x2kIMp5OQ",
+  "type": "youtube",
+  "videoId": "w1x2kIMp5OQ",
+  "provider": "国宝松本城"
+ },
+ {
+  "category": "河川",
+  "city": "吉川市川藤",
+  "image": "https://cam.river.go.jp/cam/now/cctv_110001_31C02380.jpg",
+  "lat": 35.88,
+  "lon": 139.86,
+  "name": "中川 川藤水位観測所",
+  "pref": "埼玉県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
  },
  {
   "name": "成田国際空港 A滑走路",
@@ -145,6 +289,18 @@ window.CAMERAS = [
   "provider": "浅草中屋チャンネル -ASAKUSA NAKAYA CHANNEL-"
  },
  {
+  "category": "都市",
+  "city": "新宿区",
+  "lat": 35.694,
+  "lon": 139.702,
+  "name": "新宿・歌舞伎町",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=gFRtAAmiFbE",
+  "type": "youtube",
+  "videoId": "gFRtAAmiFbE",
+  "provider": "歌舞伎町 ライブ ちゃんねる 2"
+ },
+ {
   "name": "渋谷センター街 メインアーチ前",
   "pref": "東京都",
   "city": "渋谷区",
@@ -169,6 +325,66 @@ window.CAMERAS = [
   "provider": "FNNプライムオンライン"
  },
  {
+  "category": "都市",
+  "city": "港区",
+  "lat": 35.659,
+  "lon": 139.745,
+  "name": "東京タワー",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=kshFiq4Y808",
+  "type": "youtube",
+  "videoId": "kshFiq4Y808",
+  "provider": "LIVE-TOKYO-SKY"
+ },
+ {
+  "category": "その他",
+  "city": "笛吹市",
+  "lat": 35.657,
+  "lon": 138.639,
+  "name": "JR中央本線 熊野権現踏切",
+  "pref": "山梨県",
+  "source": "https://www.youtube.com/watch?v=eXp3yZMylgI",
+  "type": "youtube",
+  "videoId": "eXp3yZMylgI",
+  "provider": "TheDramatic中央本線"
+ },
+ {
+  "category": "河川",
+  "city": "調布市多摩川",
+  "image": "https://cam.river.go.jp/cam/now/cctv_130001_31C03474.jpg",
+  "lat": 35.64,
+  "lon": 139.53,
+  "name": "多摩川 京王相模原線下流",
+  "pref": "東京都",
+  "provider": "京浜河川事務所",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "大田区田園調布",
+  "image": "https://cam.river.go.jp/cam/now/cctv_130001_31C03351.jpg",
+  "lat": 35.59,
+  "lon": 139.67,
+  "name": "多摩川 田園調布（丸子橋）",
+  "pref": "東京都",
+  "provider": "京浜河川事務所",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
+  "city": "宮津市",
+  "lat": 35.569,
+  "lon": 135.196,
+  "name": "天橋立（傘松公園）",
+  "pref": "京都府",
+  "source": "https://www.youtube.com/watch?v=hVdb6BbxEdc",
+  "type": "youtube",
+  "videoId": "hVdb6BbxEdc",
+  "provider": "天橋立傘松公園ライブカメラ"
+ },
+ {
   "name": "羽田空港 第2ターミナル",
   "pref": "東京都",
   "city": "大田区",
@@ -179,6 +395,18 @@ window.CAMERAS = [
   "videoId": "2PIdi3Xa7TY",
   "source": "https://www.youtube.com/watch?v=2PIdi3Xa7TY",
   "provider": "日テレNEWS"
+ },
+ {
+  "category": "観光地",
+  "city": "鳥取市",
+  "lat": 35.54,
+  "lon": 134.228,
+  "name": "鳥取砂丘（ワイドカメラ）",
+  "pref": "鳥取県",
+  "source": "https://www.youtube.com/watch?v=u7Zib_9HbUU",
+  "type": "youtube",
+  "videoId": "u7Zib_9HbUU",
+  "provider": "鳥取砂丘チャンネル"
  },
  {
   "name": "富士山・河口湖（湖のホテル）",
@@ -193,6 +421,18 @@ window.CAMERAS = [
   "provider": "official MIZNO HOTEL"
  },
  {
+  "category": "河川",
+  "city": "関市小屋名",
+  "image": "https://cam.river.go.jp/cam/now/105377055.jpg",
+  "lat": 35.46,
+  "lon": 136.9,
+  "name": "長良川 小屋名",
+  "pref": "岐阜県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
   "name": "横浜 汽車道・みなとみらい",
   "pref": "神奈川県",
   "city": "横浜市中区",
@@ -203,6 +443,54 @@ window.CAMERAS = [
   "videoId": "QsdJxYmXvsQ",
   "source": "https://www.youtube.com/watch?v=QsdJxYmXvsQ",
   "provider": "横浜汽車道ライブカメラ /Live Cam Yokohama Japan"
+ },
+ {
+  "category": "河川",
+  "city": "美濃加茂市御門町",
+  "image": "https://cam.river.go.jp/cam/now/cctv_210005_51C03264.jpg",
+  "lat": 35.43,
+  "lon": 137.02,
+  "name": "木曽川 今渡（太田橋）",
+  "pref": "岐阜県",
+  "provider": "木曽川上流河川事務所",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "山・自然",
+  "city": "山中湖村",
+  "lat": 35.43,
+  "lon": 138.874,
+  "name": "富士山（山中湖・ホテルマウント富士から）",
+  "pref": "山梨県",
+  "source": "https://www.youtube.com/watch?v=Gn2CJjzY068",
+  "type": "youtube",
+  "videoId": "Gn2CJjzY068",
+  "provider": "フジヤマNAVI"
+ },
+ {
+  "category": "観光地",
+  "city": "出雲市",
+  "lat": 35.393,
+  "lon": 132.687,
+  "name": "出雲大社前駅・神門通り",
+  "pref": "島根県",
+  "source": "https://www.youtube.com/watch?v=LQ2h_Uhmezg",
+  "type": "youtube",
+  "videoId": "LQ2h_Uhmezg",
+  "provider": "ライブカメラ24"
+ },
+ {
+  "category": "観光地",
+  "city": "南丹市",
+  "lat": 35.309,
+  "lon": 135.647,
+  "name": "美山かやぶきの里",
+  "pref": "京都府",
+  "source": "https://www.youtube.com/watch?v=W0rAn0GJaH8",
+  "type": "youtube",
+  "videoId": "W0rAn0GJaH8",
+  "provider": "森の京都"
  },
  {
   "name": "葉山 富士山・江の島",
@@ -241,6 +529,18 @@ window.CAMERAS = [
   "provider": "[公式]スターキャット"
  },
  {
+  "category": "観光地",
+  "city": "京都市",
+  "lat": 35.121,
+  "lon": 135.763,
+  "name": "貴船神社",
+  "pref": "京都府",
+  "source": "https://www.youtube.com/watch?v=eJAqPCdS1cY",
+  "type": "youtube",
+  "videoId": "eJAqPCdS1cY",
+  "provider": "京都観光混雑状況Live"
+ },
+ {
   "name": "京都駅",
   "pref": "京都府",
   "city": "京都市下京区",
@@ -251,6 +551,42 @@ window.CAMERAS = [
   "videoId": "M7panuXw7Qg",
   "source": "https://www.youtube.com/watch?v=M7panuXw7Qg",
   "provider": "JR京都駅ライブカメラ(JR Kyoto Station LiveCam)"
+ },
+ {
+  "category": "その他",
+  "city": "常滑市",
+  "lat": 34.927,
+  "lon": 136.827,
+  "name": "名鉄常滑線・大野町駅",
+  "pref": "愛知県",
+  "source": "https://www.youtube.com/watch?v=xV1-oWEBZBk",
+  "type": "youtube",
+  "videoId": "xV1-oWEBZBk",
+  "provider": "ライブカメラ24"
+ },
+ {
+  "category": "河川",
+  "city": "高槻市淀の原町",
+  "image": "https://cam.river.go.jp/cam/now/cctv_270008_61C03329.jpg",
+  "lat": 34.87,
+  "lon": 135.65,
+  "name": "淀川 高浜",
+  "pref": "大阪府",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "観光地",
+  "city": "高梁市",
+  "lat": 34.809,
+  "lon": 133.621,
+  "name": "備中松山城 雲海展望台",
+  "pref": "岡山県",
+  "source": "https://www.youtube.com/watch?v=JnVbhapQxz8",
+  "type": "youtube",
+  "videoId": "JnVbhapQxz8",
+  "provider": "備中松山城雲海展望台ライブ配信"
  },
  {
   "name": "神戸ハーバーランド",
@@ -277,6 +613,30 @@ window.CAMERAS = [
   "provider": "ラジカルビデオジョッキー RVJJP"
  },
  {
+  "category": "その他",
+  "city": "淡路市",
+  "lat": 34.613,
+  "lon": 135.021,
+  "name": "明石海峡大橋（淡路SAから）",
+  "pref": "兵庫県",
+  "source": "https://www.youtube.com/watch?v=wVYiVODQAkg",
+  "type": "youtube",
+  "videoId": "wVYiVODQAkg",
+  "provider": "JBハイウェイサービス"
+ },
+ {
+  "category": "空港",
+  "city": "泉佐野市",
+  "lat": 34.435,
+  "lon": 135.243,
+  "name": "関西国際空港 第1ターミナル",
+  "pref": "大阪府",
+  "source": "https://www.youtube.com/watch?v=1dY5_2BScEE",
+  "type": "youtube",
+  "videoId": "1dY5_2BScEE",
+  "provider": "カンテレNEWS"
+ },
+ {
   "category": "河川",
   "city": "貝塚市堀",
   "image": "https://cam.river.go.jp/cam/now/106913059.jpg",
@@ -287,6 +647,30 @@ window.CAMERAS = [
   "provider": "大阪府河川室",
   "source": "https://www.river.go.jp/",
   "type": "image"
+ },
+ {
+  "category": "その他",
+  "city": "坂出市",
+  "lat": 34.391,
+  "lon": 133.822,
+  "name": "瀬戸大橋（与島から）",
+  "pref": "香川県",
+  "source": "https://www.youtube.com/watch?v=-QSsYYjJbnI",
+  "type": "youtube",
+  "videoId": "-QSsYYjJbnI",
+  "provider": "KBN香川テレビ放送網"
+ },
+ {
+  "category": "動物",
+  "city": "洲本市",
+  "lat": 34.31,
+  "lon": 134.85,
+  "name": "淡路島モンキーセンター",
+  "pref": "兵庫県",
+  "source": "https://www.youtube.com/watch?v=lsxYH2XQQCg",
+  "type": "youtube",
+  "videoId": "lsxYH2XQQCg",
+  "provider": "淡路ザル"
  },
  {
   "category": "河川",
@@ -311,6 +695,18 @@ window.CAMERAS = [
   "videoId": "s2CxZ7N25i0",
   "source": "https://www.youtube.com/watch?v=s2CxZ7N25i0",
   "provider": "【公式】HOME広島ニュース"
+ },
+ {
+  "category": "観光地",
+  "city": "岩国市",
+  "lat": 34.167,
+  "lon": 132.178,
+  "name": "錦帯橋",
+  "pref": "山口県",
+  "source": "https://www.youtube.com/watch?v=tHwWcSdBjjY",
+  "type": "youtube",
+  "videoId": "tHwWcSdBjjY",
+  "provider": "錦帯橋課公式チャンネル"
  },
  {
   "category": "河川",
@@ -349,6 +745,54 @@ window.CAMERAS = [
   "provider": "LOG FUKUOKA"
  },
  {
+  "category": "河川",
+  "city": "いの町波川",
+  "image": "https://cam.river.go.jp/cam/now/122559020.jpg",
+  "lat": 33.56,
+  "lon": 133.42,
+  "name": "仁淀川 茂地",
+  "pref": "高知県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "朝倉市杷木志波",
+  "image": "https://cam.river.go.jp/cam/now/14001228001.jpg",
+  "lat": 33.36,
+  "lon": 130.81,
+  "name": "筑後川 原鶴調整池",
+  "pref": "福岡県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "日田市隈",
+  "image": "https://cam.river.go.jp/cam/now/cctv_440001_91C02116.jpg",
+  "lat": 33.31,
+  "lon": 130.93,
+  "name": "筑後川 隈水位観測所",
+  "pref": "大分県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
+  "category": "河川",
+  "city": "小国町下城",
+  "image": "https://cam.river.go.jp/cam/now/111009042.jpg",
+  "lat": 33.09,
+  "lon": 131.07,
+  "name": "筑後川 池鶴",
+  "pref": "熊本県",
+  "provider": "国土交通省 川の防災情報",
+  "source": "https://www.river.go.jp/",
+  "type": "image"
+ },
+ {
   "name": "阿蘇中岳・草千里",
   "pref": "熊本県",
   "city": "阿蘇市",
@@ -359,6 +803,18 @@ window.CAMERAS = [
   "videoId": "-DDn7lAxR-8",
   "source": "https://www.youtube.com/watch?v=-DDn7lAxR-8",
   "provider": "自然公園財団 阿蘇支部"
+ },
+ {
+  "category": "観光地",
+  "city": "長崎市",
+  "lat": 32.585,
+  "lon": 129.758,
+  "name": "軍艦島（端島）",
+  "pref": "長崎県",
+  "source": "https://www.youtube.com/watch?v=pmdZ-D1XOJA",
+  "type": "youtube",
+  "videoId": "pmdZ-D1XOJA",
+  "provider": "長崎ケーブルメディア[公式]"
  },
  {
   "name": "桜島（鹿児島市）",
@@ -373,6 +829,18 @@ window.CAMERAS = [
   "provider": "KYT 情報カメラ(鹿児島市) -鹿児島読売テレビ"
  },
  {
+  "category": "港",
+  "city": "小笠原村",
+  "lat": 27.095,
+  "lon": 142.197,
+  "name": "小笠原・父島 二見港",
+  "pref": "東京都",
+  "source": "https://www.youtube.com/watch?v=Ad6A1dzNftI",
+  "type": "youtube",
+  "videoId": "Ad6A1dzNftI",
+  "provider": "小笠原村役場"
+ },
+ {
   "name": "那覇 国際通り",
   "pref": "沖縄県",
   "city": "那覇市",
@@ -383,6 +851,18 @@ window.CAMERAS = [
   "videoId": "ZBBezhwzCzY",
   "source": "https://www.youtube.com/watch?v=ZBBezhwzCzY",
   "provider": "バクノビジョン"
+ },
+ {
+  "category": "観光地",
+  "city": "宮古島市",
+  "lat": 24.827,
+  "lon": 125.161,
+  "name": "宮古島・佐和田の浜と下地島17END",
+  "pref": "沖縄県",
+  "source": "https://www.youtube.com/watch?v=4v5e4eKIT_E",
+  "type": "youtube",
+  "videoId": "4v5e4eKIT_E",
+  "provider": "KuROKO-宮古島映像-"
  },
  {
   "name": "石垣島 離島ターミナル",
