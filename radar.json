@@ -1,0 +1,53 @@
+{
+ "updated": "2026-10-25T22:19:01+09:00",
+ "cams": {
+  "jigokudani": {
+   "name": "地獄谷野猿公苑",
+   "videoId": null,
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  },
+  "tembe": {
+   "name": "テンベ象公園の水場",
+   "videoId": "0P_LBKqVbfs",
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  },
+  "namibia": {
+   "name": "ナミビアの水場",
+   "videoId": "ydYDqZQpim8",
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  },
+  "brooks": {
+   "name": "ブルックス滝（ヒグマ）",
+   "videoId": "EwTH5yY7Mks",
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  },
+  "decorah": {
+   "name": "デコラ・ノースの巣（ワシ）",
+   "videoId": "abbR-Ttd-cA",
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  },
+  "mpala": {
+   "name": "ムパラのカバプール",
+   "videoId": "BsZEOvS3qTM",
+   "state": "unknown",
+   "since": null,
+   "lastChange": null,
+   "score": null
+  }
+ }
+}
