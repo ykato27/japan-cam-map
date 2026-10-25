@@ -1,4 +1,4 @@
-// 検証済みライブカメラ（YouTubeライブ・埋め込み再生確認済み）2026-10-25
+// 検証済みライブカメラ（YouTubeライブ・埋め込み可）2026-10-25
 window.CAMERAS = [
  {
   "category": "山・自然",
@@ -385,6 +385,18 @@ window.CAMERAS = [
   "provider": "ライブカメラ24"
  },
  {
+  "category": "都市",
+  "city": "彦根市",
+  "lat": 35.272,
+  "lon": 136.259,
+  "name": "彦根ライブカメラ",
+  "pref": "滋賀県",
+  "source": "https://www.youtube.com/@HikoneLIVECam",
+  "type": "youtube",
+  "videoId": "tp0h_Ta7EEM",
+  "provider": "HikoneLIVECam"
+ },
+ {
   "name": "葉山 富士山・江の島",
   "pref": "神奈川県",
   "city": "葉山町",
@@ -445,6 +457,18 @@ window.CAMERAS = [
   "provider": "熱海市道路状況公式チャンネル"
  },
  {
+  "category": "港",
+  "city": "大津市",
+  "lat": 35.013,
+  "lon": 135.869,
+  "name": "大津港ライブカメラ",
+  "pref": "滋賀県",
+  "source": "https://bantv.jp/",
+  "type": "youtube",
+  "videoId": "sM2IjSRBwnY",
+  "provider": "BANTV びわ湖大津観光チャンネル"
+ },
+ {
   "name": "京都駅",
   "pref": "京都府",
   "city": "京都市下京区",
@@ -467,6 +491,18 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "xV1-oWEBZBk",
   "provider": "ライブカメラ24"
+ },
+ {
+  "category": "都市",
+  "city": "奈良市",
+  "lat": 34.694,
+  "lon": 135.782,
+  "name": "大和西大寺駅ライブカメラ",
+  "pref": "奈良県",
+  "source": "https://www.youtube.com/@live1saidaiji",
+  "type": "youtube",
+  "videoId": "uSDnNQ92Du4",
+  "provider": "大和西大寺駅 Live streaming"
  },
  {
   "category": "動物",
@@ -601,6 +637,18 @@ window.CAMERAS = [
   "provider": "東京都伊豆・小笠原諸島港湾ライブカメラ"
  },
  {
+  "category": "山・自然",
+  "city": "徳島市",
+  "lat": 34.069,
+  "lon": 134.549,
+  "name": "眉山ライブカメラ",
+  "pref": "徳島県",
+  "source": "https://www.youtube.com/watch?v=MW_zWAuTeAk",
+  "type": "youtube",
+  "videoId": "MW_zWAuTeAk",
+  "provider": "徳島 眉山・阿波おどり Live Camera"
+ },
+ {
   "category": "その他",
   "city": "下関市",
   "lat": 33.962,
@@ -649,6 +697,42 @@ window.CAMERAS = [
   "provider": "福岡TNC ニュース"
  },
  {
+  "category": "観光地",
+  "city": "唐津市",
+  "lat": 33.552,
+  "lon": 129.949,
+  "name": "加部島・風の見える丘ライブカメラ",
+  "pref": "佐賀県",
+  "source": "https://www.youtube.com/watch?v=KU3tuKKIyuU",
+  "type": "youtube",
+  "videoId": "KU3tuKKIyuU",
+  "provider": "株式会社ネットフォー"
+ },
+ {
+  "category": "都市",
+  "city": "佐賀市",
+  "lat": 33.263,
+  "lon": 130.301,
+  "name": "サガテレビお天気カメラ",
+  "pref": "佐賀県",
+  "source": "https://www.sagatv.co.jp/",
+  "type": "youtube",
+  "videoId": "owWQ_TECeVA",
+  "provider": "サガテレビ公式チャンネル"
+ },
+ {
+  "category": "河川",
+  "city": "宮崎市",
+  "lat": 32.911,
+  "lon": 131.423,
+  "name": "大淀川ライブカメラ（朝日新聞）",
+  "pref": "宮崎県",
+  "source": "https://www.youtube.com/watch?v=h9v4l3maqfs",
+  "type": "youtube",
+  "videoId": "h9v4l3maqfs",
+  "provider": "朝日新聞デジタル"
+ },
+ {
   "name": "阿蘇中岳・草千里",
   "pref": "熊本県",
   "city": "阿蘇市",
@@ -659,6 +743,18 @@ window.CAMERAS = [
   "videoId": "-DDn7lAxR-8",
   "source": "https://www.youtube.com/watch?v=-DDn7lAxR-8",
   "provider": "自然公園財団 阿蘇支部"
+ },
+ {
+  "category": "観光地",
+  "city": "延岡市",
+  "lat": 32.597,
+  "lon": 131.706,
+  "name": "延岡ホテルブルーエール ライブカメラ",
+  "pref": "宮崎県",
+  "source": "https://www.blue-aile.com/",
+  "type": "youtube",
+  "videoId": "SPmojUlAA-Q",
+  "provider": "サボテン"
  },
  {
   "category": "観光地",
