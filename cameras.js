@@ -169,6 +169,18 @@ window.CAMERAS = [
   "provider": "MARUNUMA"
  },
  {
+  "category": "動物",
+  "city": "大洗町",
+  "lat": 36.721,
+  "lon": 140.61,
+  "name": "アクアワールド茨城県大洗水族館・サメ水槽",
+  "pref": "茨城県",
+  "source": "https://www.youtube.com/watch?v=4GyL-3_I9Kc",
+  "type": "youtube",
+  "videoId": "4GyL-3_I9Kc",
+  "provider": "ANNnewsCH"
+ },
+ {
   "name": "白馬八方尾根スキー場 兎平ゲレンデ",
   "pref": "長野県",
   "city": "白馬村",
@@ -227,6 +239,30 @@ window.CAMERAS = [
   "type": "youtube",
   "videoId": "w1x2kIMp5OQ",
   "provider": "国宝松本城"
+ },
+ {
+  "category": "都市",
+  "city": "福井市",
+  "lat": 36.064,
+  "lon": 136.22,
+  "name": "大名町交差点・福井駅西口（FBC情報カメラ）",
+  "pref": "福井県",
+  "source": "https://www.youtube.com/watch?v=kdTzzqRh4LQ",
+  "type": "youtube",
+  "videoId": "kdTzzqRh4LQ",
+  "provider": "FBC 福井放送公式チャンネル"
+ },
+ {
+  "category": "都市",
+  "city": "福井市",
+  "lat": 36.062,
+  "lon": 136.223,
+  "name": "福井駅付近（FBC情報カメラ）",
+  "pref": "福井県",
+  "source": "https://www.youtube.com/watch?v=tHMEnSTnFd4",
+  "type": "youtube",
+  "videoId": "tHMEnSTnFd4",
+  "provider": "FBC 福井放送公式チャンネル"
  },
  {
   "name": "成田国際空港 A滑走路",
