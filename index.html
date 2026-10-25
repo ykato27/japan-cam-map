@@ -115,7 +115,19 @@
     var foot = '<div class="meta"><span class="badge">' + c.category + '</span>' + c.pref + ' ' + (c.city || '')
       + (c.type === 'image' ? ' <span class="badge">広告なし</span>' : '') + '</div>'
       + '配信元: ' + (c.provider || '公開ライブカメラ') + ' ／ <a href="' + c.source + '" target="_blank" rel="noopener">公式／配信ページを開く</a>';
-    if (c.type === 'youtube') {
+    if (c.type === 'youtube' && c.embed === false) {
+      vMedia.innerHTML = '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
+        + '<button class="play-btn" type="button">▶ YouTubeで見る（外部）</button></div>';
+      foot = foot.replace('</div>', ' <span class="badge">外部リンク</span></div>');
+      foot += '<div class="meta">この配信はサイト内での再生が許可されていないため、YouTubeで開きます。</div>';
+      var wrapX = vMedia.querySelector('.video-wrap');
+      L.DomEvent.disableClickPropagation(wrapX);
+      wrapX.style.cursor = 'pointer';
+      wrapX.addEventListener('click', function (ev) {
+        if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+        window.open('https://www.youtube.com/watch?v=' + c.videoId, '_blank', 'noopener');
+      });
+    } else if (c.type === 'youtube') {
       vMedia.innerHTML = '<div class="video-wrap"><img class="yt-thumb" src="https://i.ytimg.com/vi/' + c.videoId + '/hqdefault.jpg" alt="">'
         + '<button class="play-btn" type="button">▶ ライブを見る</button></div>';
       foot += '<div class="meta">開いただけでは広告は出ません。再生はミュートで始まります（音はプレーヤーの音量ボタンで出せます）。YouTube配信のため、再生開始時に広告が入る場合があります</div>';

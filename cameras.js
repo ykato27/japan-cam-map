@@ -1,4 +1,4 @@
-// ライブカメラデータ: 日本70件 + 海外30件 (2026-10-25 海外拡張)
+// ライブカメラデータ: 日本70件 + 海外45件 (2026-10-25 世界展開+代替解決)
 window.CAMERAS = [
  {
   "category": "山・自然",
@@ -1210,5 +1210,190 @@ window.CAMERAS = [
   "source": "https://www.youtube.com/watch?v=qx7gry390YA",
   "type": "youtube",
   "videoId": "qx7gry390YA"
+ },
+ {
+  "name": "タイムズスクエア 1560ブロードウェイ（AE Signage）",
+  "pref": "アメリカ",
+  "city": "ニューヨーク",
+  "lat": 40.758,
+  "lon": -73.9855,
+  "category": "都市",
+  "type": "youtube",
+  "videoId": "VXo0VqVcbK4",
+  "channel": "AE Signage",
+  "source": "https://www.youtube.com/watch?v=VXo0VqVcbK4"
+ },
+ {
+  "name": "タイムズスクエア・ダフィースクエア（AE Signage）",
+  "pref": "アメリカ",
+  "city": "ニューヨーク",
+  "lat": 40.7594,
+  "lon": -73.9845,
+  "category": "都市",
+  "type": "youtube",
+  "videoId": "pv-2pVViNwc",
+  "channel": "AE Signage",
+  "source": "https://www.youtube.com/watch?v=pv-2pVViNwc"
+ },
+ {
+  "name": "エッフェル塔を望むパリ市街（Paris75Webcam）",
+  "pref": "フランス",
+  "city": "パリ",
+  "lat": 48.8584,
+  "lon": 2.2945,
+  "category": "観光地",
+  "type": "youtube",
+  "videoId": "QI-PPEW2Bgc",
+  "channel": "Paris75Webcam",
+  "source": "https://www.youtube.com/watch?v=QI-PPEW2Bgc"
+ },
+ {
+  "name": "シドニーハーバー（WebcamSydney）",
+  "pref": "オーストラリア",
+  "city": "シドニー",
+  "lat": -33.852,
+  "lon": 151.19,
+  "category": "港",
+  "type": "youtube",
+  "videoId": "5uZa3-RMFos",
+  "channel": "WebcamSydney",
+  "source": "https://www.youtube.com/watch?v=5uZa3-RMFos"
+ },
+ {
+  "name": "デュバルストリート（フロリダキーズ観光局）",
+  "pref": "アメリカ",
+  "city": "キーウェスト",
+  "lat": 24.5565,
+  "lon": -81.8003,
+  "category": "都市",
+  "type": "youtube",
+  "videoId": "f0c4udZWCnE",
+  "channel": "Florida Keys TDC – Key West",
+  "source": "https://www.youtube.com/watch?v=f0c4udZWCnE"
+ },
+ {
+  "name": "サザンモストポイント（キーウェスト）",
+  "pref": "アメリカ",
+  "city": "キーウェスト",
+  "lat": 24.5465,
+  "lon": -81.7973,
+  "category": "観光地",
+  "type": "youtube",
+  "videoId": "HDlmUp4JBLg",
+  "channel": "Southernmost Video Production",
+  "source": "https://www.youtube.com/watch?v=HDlmUp4JBLg"
+ },
+ {
+  "name": "コパカバーナビーチ Posto 6（Homes in Rio）",
+  "pref": "ブラジル",
+  "city": "リオデジャネイロ",
+  "lat": -22.9806,
+  "lon": -43.1896,
+  "category": "観光地",
+  "type": "youtube",
+  "videoId": "wyEi0OPai5g",
+  "channel": "Homes in Rio",
+  "source": "https://www.youtube.com/watch?v=wyEi0OPai5g"
+ },
+ {
+  "name": "コパカバーナビーチ Posto 3（Homes in Rio）",
+  "pref": "ブラジル",
+  "city": "リオデジャネイロ",
+  "lat": -22.9653,
+  "lon": -43.1772,
+  "category": "観光地",
+  "type": "youtube",
+  "videoId": "WEl_I5vmuSs",
+  "channel": "Homes in Rio",
+  "source": "https://www.youtube.com/watch?v=WEl_I5vmuSs"
+ },
+ {
+  "name": "シーポイントとライオンズヘッド（ケープタウン）",
+  "pref": "南アフリカ",
+  "city": "ケープタウン",
+  "lat": -33.9173,
+  "lon": 18.3876,
+  "category": "山・自然",
+  "type": "youtube",
+  "videoId": "4Zu64CmAjMo",
+  "channel": "Vanilla",
+  "source": "https://www.youtube.com/watch?v=4Zu64CmAjMo"
+ },
+ {
+  "name": "ケープタウン市街とシグナルヒル（Vanilla）",
+  "pref": "南アフリカ",
+  "city": "ケープタウン",
+  "lat": -33.9239,
+  "lon": 18.4134,
+  "category": "都市",
+  "type": "youtube",
+  "videoId": "8xvFxAPpEtc",
+  "channel": "Vanilla",
+  "source": "https://www.youtube.com/watch?v=8xvFxAPpEtc"
+ },
+ {
+  "category": "動物",
+  "channel": "Explore Panda and Polar Bear Cams",
+  "city": "四川省臥龍・神樹坪パンダ基地",
+  "lat": 31.1,
+  "lon": 103.3,
+  "name": "耿達バレーのパンダ",
+  "notes": "explore.orgのWolong Grove Panda Cam。iPanda系ではない（落選した成都rBh4FpcdV7o／臥龍FtABVyHxNY8とは別配信・別運営）。oEmbed 200、hqdefault_live 19,566B。サムネイルはexplore公式のポスター型静止画（モントレー水族館・ISSと同タイプで、実フレームそのものではない）。同チャンネル（Explore Panda and Polar Bear Cams）のチャーチル・ホッキョクグマは既に埋め込み判定を通過し掲載中",
+  "pref": "中国",
+  "source": "https://www.youtube.com/watch?v=BsZEOvS3qTM",
+  "type": "youtube",
+  "videoId": "BsZEOvS3qTM"
+ },
+ {
+  "category": "動物",
+  "channel": "Explore African Wildlife",
+  "city": "ライキピア県・ムパラ研究センター",
+  "lat": 0.29,
+  "lon": 36.87,
+  "name": "ムパラの水場（カバのプール）",
+  "notes": "エワソ・ンギロ川のヒッポプールを見下ろす常設カメラ。カバのほかゾウ・キリン・シマウマ等。oEmbed 200、hqdefault_live 28,181B（カバ群の実景。exploreのポスター型の可能性あり）",
+  "pref": "ケニア",
+  "source": "https://www.youtube.com/watch?v=oORXfTviuCs",
+  "type": "youtube",
+  "videoId": "oORXfTviuCs"
+ },
+ {
+  "category": "動物",
+  "channel": "PaintedDog TV",
+  "city": "リンポポ州リエツプルイト保護区",
+  "lat": -24.42,
+  "lon": 30.9,
+  "name": "リエツプルイトのブッシュカム",
+  "notes": "Painteddog.tvの24時間ブッシュカム（Critter Spa Cam）。oEmbed 200、hqdefault_live 27,387Bで当日タイムスタンプ入りの実フレームを目視確認。videoIdはチャンネルの /live が指す現行ライブで、配信再起動時にIDが変わる可能性あり",
+  "pref": "南アフリカ",
+  "source": "https://www.youtube.com/watch?v=13VgaXNhy_M",
+  "type": "youtube",
+  "videoId": "13VgaXNhy_M"
+ },
+ {
+  "category": "動物",
+  "channel": "Great Plains Conservation & Foundation",
+  "city": "オカバンゴ／セリンダ方面・Great Plains各キャンプ",
+  "lat": -19.05,
+  "lon": 23.0,
+  "name": "グレート・プレインズの湿原ライブ",
+  "notes": "Great Plains Conservation公式の24/7配信『LIVE FROM THE WILD』（HideCam）。oEmbed 200、hqdefault_live 13,949BでLIVE表示付き湿原の実フレームを目視確認。複数キャンプのカメラを映す配信のため、ピンはオカバンゴ〜セリンダの中間に置いた便宜上の位置",
+  "pref": "ボツワナ",
+  "source": "https://www.youtube.com/watch?v=1HxOxiMZUNI",
+  "type": "youtube",
+  "videoId": "1HxOxiMZUNI"
+ },
+ {
+  "category": "動物",
+  "channel": "NamibiaCam",
+  "city": "マリエンタール近郊・ゴンドワナ カラハリパーク",
+  "lat": -24.43,
+  "lon": 18.1,
+  "name": "カラハリ砂漠の水場",
+  "notes": "NamibiaCamの第3カメラ（既掲載のエトーシャ・ナミブと同運営で、場所は未掲載のカラハリ）。oEmbed 200、hqdefault_live 23,155Bで当日タイムスタンプ入りの実フレームを目視確認。NamibiaCamは2026-06-16からYouTubeメンバーシップ制の案内あり（既掲載2件と同条件）",
+  "pref": "ナミビア",
+  "source": "https://www.youtube.com/watch?v=ME0dPuBtzug",
+  "type": "youtube",
+  "videoId": "ME0dPuBtzug"
  }
 ];
