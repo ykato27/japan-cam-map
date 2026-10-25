@@ -1,4 +1,4 @@
-// 検証済みカメラデータ（YouTube: oEmbed 200確認 / 河川: 実画像取得確認 2026-10-25）
+// 検証済みカメラデータ（YouTube: 実在＋ライブ確認 / 河川: 実画像取得確認 2026-10-25）
 window.CAMERAS = [
  {
   "category": "河川",
@@ -145,6 +145,18 @@ window.CAMERAS = [
   "provider": "浅草中屋チャンネル -ASAKUSA NAKAYA CHANNEL-"
  },
  {
+  "name": "渋谷センター街 メインアーチ前",
+  "pref": "東京都",
+  "city": "渋谷区",
+  "lat": 35.66,
+  "lon": 139.698,
+  "category": "都市",
+  "type": "youtube",
+  "videoId": "d1JuNg7knNo",
+  "source": "https://www.youtube.com/watch?v=d1JuNg7knNo",
+  "provider": "渋谷センター商店街"
+ },
+ {
   "name": "渋谷スクランブル交差点",
   "pref": "東京都",
   "city": "渋谷区",
@@ -152,9 +164,9 @@ window.CAMERAS = [
   "lon": 139.7,
   "category": "都市",
   "type": "youtube",
-  "videoId": "8H3nRCFVR6Y",
-  "source": "https://www.youtube.com/watch?v=8H3nRCFVR6Y",
-  "provider": "ANNnewsCH"
+  "videoId": "dfVK7ld38Ys",
+  "source": "https://www.youtube.com/watch?v=dfVK7ld38Ys",
+  "provider": "FNNプライムオンライン"
  },
  {
   "name": "羽田空港 第2ターミナル",
