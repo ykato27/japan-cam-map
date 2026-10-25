@@ -20,7 +20,7 @@
   #search { flex: 1; min-width: 140px; padding: 6px 10px; border-radius: 999px; border: none; font-size: 13px; }
   #count { font-size: 12px; }
   #map { flex: 1; }
-  .cam-popup { width: 300px; max-width: 78vw; }
+  .cam-popup { width: min(560px, 88vw); }
   .cam-popup h3 { margin: 0 0 2px; font-size: 14px; }
   .cam-popup .meta { font-size: 11px; color: #555; margin-bottom: 6px; }
   .cam-popup img.still { width: 100%; border-radius: 6px; background: #111; aspect-ratio: 16/9; object-fit: cover; }
@@ -40,6 +40,7 @@
     <div class="sub">日本中の定点カメラを地図から見る。マーカーをタップすると最新の映像／画像が出ます。</div>
     <div id="controls">
       <span id="chips"></span>
+      <button id="adfree" class="chip" title="YouTube広告が出ない静止画カメラだけを表示">広告なし</button>
       <input id="search" type="search" placeholder="地名・川名・カメラ名で検索">
       <span id="count"></span>
     </div>
@@ -68,6 +69,7 @@
   (window.CAMERAS || []).forEach(function (c) { if (categories.indexOf(c.category) < 0) categories.push(c.category); });
 
   var activeCat = 'すべて';
+  var adFreeOnly = false;
   var query = '';
   var markers = [];
 
@@ -79,7 +81,7 @@
     }
     if (c.type === 'image') {
       return '<img class="still" data-img="' + c.image + '" alt="' + c.name + '">'
-        + '<div class="meta">静止画（自動更新） <span data-clock></span></div>';
+        + '<div class="meta">静止画（自動更新） <span data-clock></span> <span class="badge">広告なし</span></div>';
     }
     return '<div class="meta">外部ページで映像を見るタイプ</div>';
   }
@@ -124,11 +126,12 @@
     var n = 0;
     (window.CAMERAS || []).forEach(function (c) {
       if (activeCat !== 'すべて' && c.category !== activeCat) return;
+      if (adFreeOnly && c.type !== 'image') return;
       if (query) {
         var hay = (c.name + ' ' + c.pref + ' ' + (c.city || '') + ' ' + c.category);
         if (hay.indexOf(query) < 0) return;
       }
-      var m = L.marker([c.lat, c.lon]).bindPopup(popupHtml(c), { maxWidth: 320 });
+      var m = L.marker([c.lat, c.lon]).bindPopup(popupHtml(c), { maxWidth: 600 });
       m._cam = c;
       m.on('popupopen', function (e) { armPopupMedia(e.popup.getElement(), c); });
       m.on('popupclose', function () { if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; } });
@@ -150,6 +153,13 @@
       render();
     });
     chipsEl.appendChild(b);
+  });
+
+  var adfreeEl = document.getElementById('adfree');
+  adfreeEl.addEventListener('click', function () {
+    adFreeOnly = !adFreeOnly;
+    adfreeEl.classList.toggle('active', adFreeOnly);
+    render();
   });
 
   var searchEl = document.getElementById('search');
