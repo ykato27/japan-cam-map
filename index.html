@@ -96,11 +96,15 @@
     if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
     if (!popupEl) return;
     if (c.type === 'youtube') {
-      var btn = popupEl.querySelector('[data-play]');
-      if (btn) btn.addEventListener('click', function () {
-        var wrap = btn.parentElement;
-        wrap.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allowfullscreen title="' + c.name + '"></iframe>';
-      });
+      var wrap = popupEl.querySelector('.video-wrap');
+      if (wrap) {
+        L.DomEvent.disableClickPropagation(wrap);
+        wrap.style.cursor = 'pointer';
+        wrap.addEventListener('click', function (ev) {
+          if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+          wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + c.videoId + '?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + c.name + '"></iframe>';
+        });
+      }
     }
     if (c.type === 'image') {
       var img = popupEl.querySelector('img[data-img]');
